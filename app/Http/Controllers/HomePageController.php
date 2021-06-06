@@ -44,6 +44,12 @@ class HomePageController extends Controller
         return view('front_page.all_listings');
     }
 
+    public function search_results()
+    {
+        
+        return view('front_page.search_results');
+    }
+
     public function single_listing()
     {
         

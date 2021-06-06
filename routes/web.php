@@ -62,5 +62,7 @@ Route::get('/contact', 'HomePageController@contact')->name('contact');
 
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 
+Route::get('/search_results', 'HomePageController@search_results')->name('search_results');
+
 
 
