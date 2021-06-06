@@ -28,7 +28,7 @@
     <![endif]-->
 </head>
 <body>
-<div class="wrapper">
+<div  class="wrapper">
 	<div class="preloader"></div>
 
 		@include('front_page.inc.header')

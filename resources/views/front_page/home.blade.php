@@ -1014,7 +1014,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="{{config('app.url')}}props_styles/images/property/pc1.jpg" alt="pc1.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>Miami</h4>
+								<h4>Abuja</h4>
 								<p>24 Properties</p>
 							</div>
 						</div>
@@ -1025,7 +1025,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="{{config('app.url')}}props_styles/images/property/pc2.jpg" alt="pc2.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>Los Angeles</h4>
+								<h4>Lagos</h4>
 								<p>18 Properties</p>
 							</div>
 						</div>
@@ -1036,7 +1036,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="{{config('app.url')}}props_styles/images/property/pc3.jpg" alt="pc3.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>New York</h4>
+								<h4>Calabar</h4>
 								<p>89 Properties</p>
 							</div>
 						</div>
@@ -1047,7 +1047,7 @@
 						<div class="thumb"><img class="img-fluid w100" src="{{config('app.url')}}props_styles/images/property/pc4.jpg" alt="pc4.jpg"></div>
 						<div class="overlay">
 							<div class="details">
-								<h4>Florida</h4>
+								<h4>Port-harcourt</h4>
 								<p>47 Properties</p>
 							</div>
 						</div>

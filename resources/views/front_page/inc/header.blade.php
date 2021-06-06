@@ -13,7 +13,7 @@
 		            </button>
 		        </div>
 		        <a href="#" class="navbar_brand float-left dn-smd">
-		            <img class="logo1 img-fluid" src="{{config('app.url')}}props_styles/images/header-logo.png" alt="header-logo.png">
+		            <img class="logo1 img-fluid" src="{{config('app.url')}}props_styles/images/header-logo2.png" alt="header-logo.png">
 		            <img class="logo2 img-fluid" src="{{config('app.url')}}props_styles/images/header-logo2.png" alt="header-logo2.png">
 		            <span>PropsEmpire</span>
 		        </a>
@@ -39,9 +39,17 @@
 		            <li class="last">
 		                <a href="{{route('contact')}}"><span class="title">Contact</span></a>
 		            </li>
-	                <li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-user" data-toggle="modal" data-target=".bd-example-modal-lg"> <span class="dn-lg">Login/Register</span></a></li>
-	                <li class="list-inline-item add_listing"><a href="{{route('register')}}"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
-		        </ul>
+	                <li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-user" data-toggle="modal" data-target=".bd-example-modal-lg"> <span class="dn-lg">Login</span></a></li>
+
+
+						@auth()
+
+						<li class="list-inline-item add_listing"><a href="{{route('register')}}"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
+
+
+						@endauth
+
+				</ul>
 		    </nav>
 		</div>
 	</header>
@@ -57,7 +65,7 @@
 		            <span class="mt20">PropsEmpire</span>
 				</div>
 				<ul class="menu_bar_home2">
-	                <li class="list-inline-item list_s"><a href="page-register.html"><span class="flaticon-user"></span></a></li>
+	                <li class="list-inline-item list_s"><a href="{{route('agents.home')}}"><span class="flaticon-user"></span></a></li>
 					<li class="list-inline-item"><a href="#menu"><span></span></a></li>
 				</ul>
 			</div>
@@ -95,7 +103,12 @@
 
 				<li><a href="{{route('login')}}"><span class="flaticon-user"></span> Login</a></li>
 				<li><a href="{{route('register')}}"><span class="flaticon-edit"></span> Register</a></li>
+
+				@auth()
 				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-plus"></span> Create Listing</a></li>
+
+				@endauth
+			
 			</ul>
 		</nav>
 	</div>
