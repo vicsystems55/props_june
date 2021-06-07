@@ -39,12 +39,12 @@
 		            <li class="last">
 		                <a href="{{route('contact')}}"><span class="title">Contact</span></a>
 		            </li>
-	                <li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-user" data-toggle="modal" data-target=".bd-example-modal-lg"> <span class="dn-lg">Login</span></a></li>
+	                <li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-user" > <span class="dn-lg">Login</span></a></li>
 
 
 						@auth()
 
-						<li class="list-inline-item add_listing"><a href="{{route('register')}}"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
+						<li class="list-inline-item add_listing"><a href="{{route('register')}}"><span class="dn-lg"> My Account</span></a></li>
 
 
 						@endauth

@@ -1,6 +1,6 @@
 <div class="dashboard_sidebar_menu dn-992">
 	    <ul class="sidebar-menu">
-	   		<li class="header"><img src="{{config('app.url')}}props_styles/images/header-logo2.png" alt="header-logo2.png"> FindHouse</li>
+	   		<li class="header" style="font-size: 17pt;"><img src="{{config('app.url')}}props_styles/images/header-logo2.png" alt="header-logo2.png" > Propsempire</li>
 	   		<li class="title"><span>Main</span></li>
 	    	<li class="treeview {{ (request()->is('agents/home')) ? 'active' : '' }}"><a class="" href="{{route('agents.home')}}"><i class="flaticon-layers "></i><span> Dashboard</span></a></li>
 	      	<li class="treeview {{ (request()->is('agents/messages')) ? 'active' : '' }}"><a href="{{route('agents.messages')}}"><i class="flaticon-envelope"></i><span> Message</span></a></li>
