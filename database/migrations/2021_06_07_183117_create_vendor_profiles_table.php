@@ -15,6 +15,17 @@ class CreateVendorProfilesTable extends Migration
     {
         Schema::create('vendor_profiles', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('vendor_id')->unsigned();
+            $table->string('country');
+            $table->string('bio');
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->string('phone');
+            $table->string('address');
+            $table->string('status')->default('inactive');
+            $table->string('skills');
+            $table->foreign('vendor_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

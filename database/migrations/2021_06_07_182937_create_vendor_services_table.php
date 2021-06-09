@@ -15,6 +15,9 @@ class CreateVendorServicesTable extends Migration
     {
         Schema::create('vendor_services', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('description');
+            $table->string('cover_img');
             $table->timestamps();
         });
     }

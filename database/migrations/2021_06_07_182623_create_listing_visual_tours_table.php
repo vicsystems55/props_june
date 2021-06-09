@@ -15,8 +15,16 @@ class CreateListingVisualToursTable extends Migration
     {
         Schema::create('listing_visual_tours', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('listing_id')->unsigned();
+            $table->string('video_url');
+            $table->string('description')->nullable();
+            $table->string('status')->default('active');
+
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('listing_id')->references('id')->on('listings');
             $table->timestamps();
         });
+    
     }
 
     /**

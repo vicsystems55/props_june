@@ -12,5 +12,20 @@ class CategorySeeder extends Seeder
     public function run()
     {
         //
+        DB::table('categories')->insertOrIgnore([
+            [
+                'name' => 'Rent',
+            ],
+            [
+                'name' => 'Sale',
+            ],
+            [
+                'name' => 'Shortlet',
+            ],
+            [
+                'name' => 'Joint Venture',
+            ],
+           
+        ]);
     }
 }

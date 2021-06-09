@@ -15,7 +15,14 @@ class CreateListingImagesTable extends Migration
     {
         Schema::create('listing_images', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('listing_id')->unsigned();
+            $table->string('img_path');
+            $table->integer('order')->unsigned();
+            $table->string('status')->default('active');
+
+            $table->foreign('listing_id')->references('id')->on('listings');
             $table->timestamps();
+        });
         });
     }
 
