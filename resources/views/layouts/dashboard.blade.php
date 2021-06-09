@@ -182,7 +182,7 @@
 					<div class="row mt50">
 						<div class="col-lg-6 offset-lg-3">
 							<div class="copyright-widget text-center">
-								<p>© 2020 Find House. Made with love.</p>
+								<p>© 2021 Propsempire.</p>
 							</div>
 						</div>
 					</div>

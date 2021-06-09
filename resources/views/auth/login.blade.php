@@ -30,8 +30,8 @@
 
                         @csrf
 							<div class="heading">
-								<h3 class="text-center">Login to your account</h3>
-								<p class="text-center">Don't have an account? <a class="text-thm" href="{{route('register')}}">Sign Up!</a></p>
+								<h3 class="text-center">Login to Propsempire</h3>
+								<p class="text-center">Don't have a propempire account? <a class="text-thm" href="{{route('register')}}">Sign Up!</a></p>
 							</div>
 							 <div class="form-group">
 						    	<input type="email" class="form-control" name="email" id="exampleInputEmail3" placeholder="Email Address">
