@@ -15,6 +15,7 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('to_id')->unsigned();
             $table->string('from_name');
             $table->string('from_phone');
             $table->string('from_email');
@@ -29,7 +30,7 @@ class CreateMessagesTable extends Migration
 
             $table->foreign('to_id')->references('id')->on('users');
             $table->timestamps();
-        });
+    
         });
     }
 

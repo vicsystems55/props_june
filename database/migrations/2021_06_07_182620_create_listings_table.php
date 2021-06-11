@@ -48,10 +48,10 @@ class CreateListingsTable extends Migration
             $table->string('status')->default('inactive');
 
             $table->foreign('agent_id')->references('id')->on('users');
-            $table->foreign('type_id'->references('id')->on('types');
-            $table->foreign('sub_type_id'->references('id')->on('sub_types');
-            $table->foreign('category_id'->references('id')->on('categories');
-            $table->foreign('user_subscription_id'->references('id')->on('user_subscriptions');
+            $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('sub_type_id')->references('id')->on('sub_types');
+            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('user_subscription_id')->references('id')->on('user_subscriptions');
 
             $table->timestamps();
         });

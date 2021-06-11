@@ -22,7 +22,7 @@ class CreateListingImagesTable extends Migration
 
             $table->foreign('listing_id')->references('id')->on('listings');
             $table->timestamps();
-        });
+        
         });
     }
 

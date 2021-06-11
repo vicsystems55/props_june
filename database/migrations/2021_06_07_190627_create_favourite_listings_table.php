@@ -15,6 +15,11 @@ class CreateFavouriteListingsTable extends Migration
     {
         Schema::create('favourite_listings', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('listing_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->integer('view_count')->unsigned();
+            $table->foreign('listing_id')->references('id')->on('listings');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

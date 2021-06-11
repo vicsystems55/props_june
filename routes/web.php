@@ -19,9 +19,13 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+Route::get('/choose', 'ChooseRoleController@index')->name('choose');
+
+Route::get('/logout', '\Auth\LoginController@logout')->name('logout');
+
 //'middleware' => ['auth','agents'],
 
-Route::group([ 'prefix' => 'agents'], function(){
+Route::group(['middleware' => ['auth'],  'prefix' => 'agents'], function(){
 
     Route::get('/home', 'AgentsPageController@home')->name('agents.home');
 
@@ -63,6 +67,8 @@ Route::get('/contact', 'HomePageController@contact')->name('contact');
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 
 Route::get('/search_results', 'HomePageController@search_results')->name('search_results');
+
+
 
 
 

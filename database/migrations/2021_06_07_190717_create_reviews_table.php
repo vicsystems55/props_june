@@ -15,6 +15,10 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('listing_id')->unsigned();
+            $table->string('message');
+            $table->string('status');
+            $table->foreign('listing_id')->references('id')->on('listings');
             $table->timestamps();
         });
     }

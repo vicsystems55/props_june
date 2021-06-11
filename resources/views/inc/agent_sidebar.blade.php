@@ -45,6 +45,17 @@
 			</li>
 		    <li class="treeview {{ (request()->is('agents/my_profile')) ? 'active' : '' }}">
 			<a href="{{route('agents.my_profile')}}"><i class="flaticon-user"></i> <span>My Profile</span></a></li>
-		    <li><a href=""><i class="flaticon-logout"></i> <span>Logout</span></a></li>
+		    <li>
+				<a href="{{route('logout')}}" >
+
+				<i class="flaticon-logout"></i> 
+				<span>Logout</span>
+				
+				</a>
+			</li>
+	
+
+
+			
 	    </ul>
     </div>

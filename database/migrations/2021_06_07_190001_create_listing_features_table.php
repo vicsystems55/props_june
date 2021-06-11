@@ -15,6 +15,10 @@ class CreateListingFeaturesTable extends Migration
     {
         Schema::create('listing_features', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('listing_id')->unsigned();
+            $table->bigInteger('amenity_id')->unsigned();
+            $table->foreign('listing_id')->references('id')->on('listings');
+            $table->foreign('amenity_id')->references('id')->on('amenities');
             $table->timestamps();
         });
     }

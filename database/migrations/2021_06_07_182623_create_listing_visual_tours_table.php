@@ -20,7 +20,7 @@ class CreateListingVisualToursTable extends Migration
             $table->string('description')->nullable();
             $table->string('status')->default('active');
 
-            $table->foreign('user_id')->references('id')->on('users');
+           
             $table->foreign('listing_id')->references('id')->on('listings');
             $table->timestamps();
         });

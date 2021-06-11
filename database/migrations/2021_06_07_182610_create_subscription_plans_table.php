@@ -22,7 +22,7 @@ class CreateSubscriptionPlansTable extends Migration
             $table->string('auto_boost');
             $table->string('status')->default('active');
             $table->timestamps();
-        });
+       
         });
     }
 

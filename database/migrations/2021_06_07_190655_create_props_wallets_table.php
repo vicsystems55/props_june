@@ -15,6 +15,9 @@ class CreatePropsWalletsTable extends Migration
     {
         Schema::create('props_wallets', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id')->unsigned();
+            $table->integer('props_credits');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
