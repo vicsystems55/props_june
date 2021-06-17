@@ -39,12 +39,19 @@
 		            <li class="last">
 		                <a href="{{route('contact')}}"><span class="title">Contact</span></a>
 		            </li>
-	                <li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-user" > <span class="dn-lg">Login</span></a></li>
+
+	                	
 
 
 						@auth()
 
-						<li class="list-inline-item add_listing"><a href="{{route('register')}}"><span class="dn-lg"> My Account</span></a></li>
+						<li class="list-inline-item add_listing"><a href="{{route('agents.home')}}"><span class="dn-l"> My Account</span></a></li>
+
+						<li class="list-inline-item "><a href="{{route('logout')}}"><span class="dn-lg"> Logout</span></a></li>
+
+						@else
+
+						<li class="list-inline-item list_s"><a href="{{route('login')}}" class="btn flaticon-user" > <span class="dn-lg">Login</span></a></li>
 
 
 						@endauth

@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/choose', 'ChooseRoleController@index')->name('choose');
 
-Route::get('/logout', '\Auth\LoginController@logout')->name('logout');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 //'middleware' => ['auth','agents'],
 
@@ -32,6 +32,14 @@ Route::group(['middleware' => ['auth'],  'prefix' => 'agents'], function(){
     Route::get('/messages', 'AgentsPageController@messages')->name('agents.messages');
 
     Route::get('/create_listing', 'AgentsPageController@create_listing')->name('agents.create_listing');
+
+    Route::get('/create_listing2', 'AgentsPageController@create_listing2')->name('agents.create_listing2');
+
+    Route::get('/create_listing3', 'AgentsPageController@create_listing3')->name('agents.create_listing3');
+
+    Route::get('/create_listing4', 'AgentsPageController@create_listing4')->name('agents.create_listing4');
+
+    Route::get('/create_listing5', 'AgentsPageController@create_listing5')->name('agents.create_listing5');
 
     Route::get('/my_listings', 'AgentsPageController@my_listings')->name('agents.my_listings');
 
@@ -66,9 +74,24 @@ Route::get('/contact', 'HomePageController@contact')->name('contact');
 
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 
+Route::get('/all_listings', 'HomePageController@all_listings')->name('all_listings');
+
+Route::get('/single_listing', 'HomePageController@single_listing')->name('single_listing');
+
+Route::get('/blog', 'HomePageController@blog')->name('blog');
+
+Route::get('/subscription_plans', 'HomePageController@subscription_plans')->name('subscription_plans');
+
 Route::get('/search_results', 'HomePageController@search_results')->name('search_results');
 
 
+
+
+Route::get('/get_categories', 'ListingController@get_categories')->name('get_categories');
+
+Route::get('/get_type', 'ListingController@get_type')->name('get_type');
+
+Route::get('/get_subtype', 'ListingController@get_subtype')->name('get_subtype');
 
 
 

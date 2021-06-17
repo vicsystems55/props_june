@@ -55,4 +55,12 @@ class HomePageController extends Controller
         
         return view('front_page.single_listing');
     }
+
+    public function subscription_plans()
+    {
+        
+        return view('front_page.subscription_plans');
+    }
+
+    
 }

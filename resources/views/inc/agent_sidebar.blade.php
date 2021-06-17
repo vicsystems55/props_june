@@ -39,7 +39,7 @@
 				<a href="">
 				<i class="flaticon-box"></i> <span>My Account</span></a>
 				<ul class="treeview-menu">
-		        	<li ><a href="{{route('agents.home')}}"><i class="fa fa-circle"></i> Subscription Plans</a></li>
+		        	<li ><a targe="_blank" href="{{route('subscription_plans')}}"><i class="fa fa-circle"></i> Subscription Plans</a></li>
 		        	<li class="treeview {{ (request()->is('agents/my_plan')) ? 'active' : '' }}"><a href="{{route('agents.my_profile')}}"><i class="fa fa-circle"></i> My Plan</a></li>
 		        </ul>
 			</li>

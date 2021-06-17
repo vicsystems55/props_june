@@ -12,7 +12,7 @@ class SubTypeSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('ub_types')->insertOrIgnore([
+        DB::table('sub_types')->insertOrIgnore([
             [
                 'name' => 'Mini Flat',
             ],

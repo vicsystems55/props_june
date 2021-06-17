@@ -55,7 +55,7 @@
 		        <!--Note: declare the Menu style in the data-menu-style="horizontal" (options: horizontal, vertical, accordion) -->
 		        <ul id="respMenu" class="ace-responsive-menu text-right" data-menu-style="horizontal">
 		            <li>
-		                <a href="#"><span class="title">Home</span></a>
+		                <a href="{{route('home')}}"><span class="title">Home</span></a>
 		                <!-- Level Two-->
 		
 		            </li>
@@ -72,25 +72,22 @@
 		            <li class="last">
 		                <a href="page-contact.html"><span class="title">Contact</span></a>
 		            </li>
+					<li class="list-inline-item add_listing"><a href="{{route('agents.create_listing')}}"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
+
 	                <li class="user_setting">
 						<div class="dropdown">
-	                		<a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><img class="rounded-circle" src="{{config('app.url')}}props_styles/images/team/e1.png" alt="e1.png"> <span class="dn-1199">Ali Tufan</span></a>
+	                		<a class="btn dropdown-toggle" href="#" data-toggle="dropdown"><img class="rounded-circle" src="{{config('app.url')}}props_styles/images/team/e1.png" alt="e1.png"> <span class="dn-1199">{{Auth::user()->name}}</span></a>
 						    <div class="dropdown-menu">
-						    	<div class="user_set_header">
-						    		<img class="float-left" src="{{config('app.url')}}props_styles/images/team/e1.png" alt="e1.png">
-							    	<p>Ali Tufan <br><span class="address"><a href="https://grandetest.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6e0f02071a1b080f002e09030f0702400d0103">[email&#160;protected]</a></span></p>
-						    	</div>
+						    	
 						    	<div class="user_setting_content">
 									<a class="dropdown-item active" href="#">My Profile</a>
 									<a class="dropdown-item" href="#">Messages</a>
-									<a class="dropdown-item" href="#">Purchase history</a>
-									<a class="dropdown-item" href="#">Help</a>
-									<a class="dropdown-item" href="#">Log out</a>
+								
+									<a class="dropdown-item" href="{{route('logout')}}">Log out</a>
 						    	</div>
 						    </div>
 						</div>
 			        </li>
-	                <li class="list-inline-item add_listing"><a href="page-add-new-property.html"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
 		        </ul>
 		    </nav>
 		</div>
@@ -101,11 +98,11 @@
 		<div class="mobile-menu">
 			<div class="header stylehome1">
 				<div class="main_logo_home2 text-center">
-		            <img class="nav_logo_img img-fluid mt20" src="{{config('app.ur')}}props_styles/images/header-logo2.png" alt="header-logo2.png">
+		            <img class="nav_logo_img img-fluid mt20" src="{{config('app.url')}}props_styles/images/header-logo2.png" alt="header-logo2.png">
 		            <span class="mt20">PropsEmpire</span>
 				</div>
 				<ul class="menu_bar_home2">
-	                <li class="list-inline-item list_s"><a href="page-register.html"><span class="flaticon-user"></span></a></li>
+	                <li class="list-inline-item list_s"><a href="{{route('agents.home')}}"><span class="flaticon-user"></span></a></li>
 					<li class="list-inline-item"><a href="#menu"><span></span></a></li>
 				</ul>
 			</div>
@@ -121,9 +118,8 @@
 
 				<li><span>Blog</span>
 				</li>
-				<li><a href="page-contact.html">Contact</a></li>
-				<li><a href="page-login.html"><span class="flaticon-user"></span> Login</a></li>
-				<li><a href="page-register.html"><span class="flaticon-edit"></span> Register</a></li>
+				
+			
 				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-plus"></span> Create Listing</a></li>
 			</ul>
 		</nav>
@@ -195,8 +191,8 @@
 <script src="{{asset('js/app.js')}}"></script>
 <!-- Wrapper End -->
 
-<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+ <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> 
 
 
 <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

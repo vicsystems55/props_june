@@ -68,7 +68,9 @@ class RegisterController extends Controller
 
         $user_code = "PE/".rand(11100,99999);
 
-        return User::create([
+       
+
+        $user =  User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'role' => $data['role'],
@@ -76,6 +78,8 @@ class RegisterController extends Controller
             'referer_code' => $data['referer_code']??'system',
             'password' => Hash::make($data['password']),
         ]);
+
+        return $user;
     }
 
 }

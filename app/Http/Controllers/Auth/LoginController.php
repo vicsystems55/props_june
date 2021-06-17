@@ -43,6 +43,8 @@ class LoginController extends Controller
     {
         # code...
         Auth::logout();
+        
+        return redirect('/login');
     }
 
     

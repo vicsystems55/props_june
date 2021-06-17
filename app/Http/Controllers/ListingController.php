@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Listing;
+use App\Category;
+use App\Type;
+use App\SubType;
+
 use Illuminate\Http\Request;
 
 class ListingController extends Controller
@@ -12,9 +16,30 @@ class ListingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function get_categories()
     {
         //
+        $categories = Category::all();
+
+        return $categories;
+
+
+    }
+
+    public function get_type()
+    {
+        //
+        $types = Type::all();
+
+        return $types;
+    }
+
+    public function get_subtype()
+    {
+        //
+        $sub_type = SubType::all();
+
+        return $sub_type;
     }
 
     /**
@@ -22,9 +47,13 @@ class ListingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function all_listings()
     {
         //
+
+        $all_listings = Listing::where('status', 'live')->latest()->get();
+
+        return $all_listings;
     }
 
     /**

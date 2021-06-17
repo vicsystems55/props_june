@@ -14,6 +14,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::post('/register', 'ApiAuthController@register');
+
+Route::post('/login', 'ApiAuthController@login');
+
+Route::post('/logout', 'ApiAuthController@logout');
+
+Route::post('/all_listings', 'ListingController@all_lisings')->middleware('auth:sanctum');

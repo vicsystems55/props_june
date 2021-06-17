@@ -1315,7 +1315,7 @@
 				</div>
 				<div class="col-lg-4">
 					<div class="parner_reg_btn text-right tac-smd">
-						<a class="btn btn-thm2" href="#">Register Now</a>
+						<a class="btn btn-thm2" href="{{route('register')}}">Register Now</a>
 					</div>
 				</div>
 			</div>

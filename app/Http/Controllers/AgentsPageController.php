@@ -53,6 +53,34 @@ class AgentsPageController extends Controller
         return view('agents.create_listing');
     }
 
+    public function create_listing2()
+    {
+        //
+
+        return view('agents.create_listing2');
+    }
+
+    public function create_listing3()
+    {
+        //
+
+        return view('agents.create_listing3');
+    }
+
+    public function create_listing4()
+    {
+        //
+
+        return view('agents.create_listing4');
+    }
+
+    public function create_listing5()
+    {
+        //
+
+        return view('agents.create_listing5');
+    }
+
     public function my_listings()
     {
         //
