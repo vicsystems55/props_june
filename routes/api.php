@@ -20,9 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('auth:sanctum')->get('/userx', function (Request $request) {
+    return 123;
 });
+
+// Route::middleware('auth:sanctum')->get('/listingz', 'ListingController@all_listings');
 
 Route::post('/register', 'ApiAuthController@register');
 
@@ -30,4 +32,4 @@ Route::post('/login', 'ApiAuthController@login');
 
 Route::post('/logout', 'ApiAuthController@logout');
 
-Route::post('/all_listings', 'ListingController@all_lisings')->middleware('auth:sanctum');
+Route::get('/all_listingz', 'ListingController@all_listings')->middleware('auth:sanctum');

@@ -6,8 +6,11 @@ use App\Listing;
 use App\Category;
 use App\Type;
 use App\SubType;
+use App\User;
+use Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ListingController extends Controller
 {
@@ -50,10 +53,12 @@ class ListingController extends Controller
     public function all_listings()
     {
         //
+      
+        $all_users = User::all();
 
-        $all_listings = Listing::where('status', 'live')->latest()->get();
+        return $all_users;
 
-        return $all_listings;
+ 
     }
 
     /**
