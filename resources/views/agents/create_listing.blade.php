@@ -10,7 +10,7 @@
             <h2 class="breadcrumb_title">Add New Property</h2>
             <p class="h4">STAGE 1/5</p>
 
-            <example-component></example-component>
+       
 
             <a class="badge badge-primary" href="{{route('agents.create_listing')}}">STAGE 1</a>
           
@@ -32,33 +32,28 @@
                         <textarea class="form-control" id="propertyDescription" rows="7"></textarea>
                     </div>
                 </div>
-                <example-component></example-component>
+          
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
-                        <label for="formGroupExamplePrice">Price</label>
+                        <label for="formGroupExamplePrice">Price <span>&#8358;</span></label>
                         <input type="number" class="form-control" id="formGroupExamplePrice">
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
-                        <label for="formGroupExampleArea">Area</label>
-                        <input type="text" class="form-control" id="formGroupExampleArea">
+                        <label for="formGroupExampleArea">Area m<sup>2</sup></label>
+                        <input type="number" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-4">
-                    <div class="my_profile_setting_input ui_kit_select_search form-group">
-                        <label>Rooms</label>
-                        <select class="selectpicker" data-live-search="true" data-width="100%">
-                            <option data-tokens="Status1">1</option>
-                            <option data-tokens="Status2">2</option>
-                            <option data-tokens="Status3">3</option>
-                            <option data-tokens="Status4">4</option>
-                            <option data-tokens="Status5">5</option>
-                            <option data-tokens="Status6">Other</option>
-                        </select>
+                    <div class="my_profile_setting_input form-group">
+                        <label for="formGroupExampleArea">Rooms</label>
+                        <input type="number" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
+
                 <div class="col-xl-12">
+                    <selector-component></selector-component>
                     <div class="my_profile_setting_input">
                       
                         <a href="{{route('agents.create_listing2')}}" class="btn btn2 float-right">Next</a>

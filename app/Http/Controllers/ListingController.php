@@ -72,6 +72,14 @@ class ListingController extends Controller
         //
     }
 
+
+    public function create_listing(Request $request)
+    {
+        //
+
+        
+    }
+
     /**
      * Display the specified resource.
      *
