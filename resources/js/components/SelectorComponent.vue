@@ -3,7 +3,7 @@
                         <div class="col-lg-4 col-xl-4">
                             <div class="my_profile_setting_input ui_kit_select_search form-group">
                                 <label>Category..</label>
-                                <select name="category_id"  class="selectpicker" data-width="100%" @change="getType($event)" >
+                                <select name="category_id"  class="form-control" data-width="100%" @change="getType($event)" >
                                 <option>--Select Category--</option>
                                     <option v-for="category in categories" :key="category.index" v-bind:value="category.id" >{{category.name}}</option>
                                   
@@ -13,7 +13,7 @@
                         <div class="col-lg-4 col-xl-4">
                             <div class="my_profile_setting_input ui_kit_select_search form-group">
                                 <label>Types</label>
-                                <select name="type_id"  class="selectpicker" data-width="100%" @change="getSubType($event)" >
+                                <select name="type_id"  class="form-control" data-width="100%" @change="getSubType($event)" >
                                 <option>--Select Type--</option>
                                     <option v-for="_type in types" :key="_type.index" v-bind:value="_type.id" >{{_type.name}}</option>
                                   
@@ -22,14 +22,11 @@
                         </div>
                         <div class="col-lg-4 col-xl-4">
                             <div class="my_profile_setting_input ui_kit_select_search form-group">
-                                <label>Subtype</label>
-                                <select class="selectpicker" data-live-search="true" data-width="100%">
-                                    <option data-tokens="Status1">1</option>
-                                    <option data-tokens="Status2">2</option>
-                                    <option data-tokens="Status3">3</option>
-                                    <option data-tokens="Status4">4</option>
-                                    <option data-tokens="Status5">5</option>
-                                    <option data-tokens="Status6">Other</option>
+                                <label>Subtypes</label>
+                                <select name="type_id"  class="form-control" data-width="100%" @change="getSubType($event)" >
+                                <option>--Select Subtype--</option>
+                                    <option v-for="_subtype in subtypes" :key="_subtype.index" v-bind:value="_subtype.id" >{{_subtype.name}}</option>
+                                  
                                 </select>
                             </div>
                         </div>
@@ -43,6 +40,7 @@ data(){
     return{
         categories: [],
         types: [],
+        subtypes: [],
         loading: false,
         baseURL: process.env.MIX_API_URL
     }
@@ -81,13 +79,45 @@ data(){
 
             getType(event){
 
-               
+               alert(event.target.value);
 
              this.loading = true;
 
                 axios({
-                    method:'get',
+                    method:'post',
                     url:'get_type',
+                    data: {
+                        category_id: event.target.value
+                    },
+                    baseURL: this.baseURL
+                  
+                })
+               .then((response)=>(
+                    this.loading = false,
+              
+                     alert('gotten types'),
+                     this.types = response.data,
+                     console.log(response.data)             
+                              
+                        //  this.$emit('update', response)
+                    
+
+                ))
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+ 
+            },
+
+                        getSubType(event){
+
+               alert(event.target.value);
+
+             this.loading = true;
+
+                axios({
+                    method:'post',
+                    url:'get_subtype',
                     data: {
                         type_id: event.target.value
                     },
@@ -97,9 +127,9 @@ data(){
                .then((response)=>(
                     this.loading = false,
               
-                     alert('get type'),
-                     this.types = response.data,
-                     console.log(this.types)             
+                     alert('gotten subtypes'),
+                     this.subtypes = response.data,
+                     console.log(response.data)             
                               
                         //  this.$emit('update', response)
                     

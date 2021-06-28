@@ -43,10 +43,6 @@ class SubTypeSeeder extends Seeder
             ],
 
             [
-                'name' => 'Terraced Duplex',
-            ],
-
-            [
                 'name' => 'Commercial Land',
             ],
 

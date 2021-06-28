@@ -1975,14 +1975,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       categories: [],
       types: [],
+      subtypes: [],
       loading: false,
       baseURL: "http://localhost/props_june/public/"
     };
@@ -2007,16 +2005,36 @@ __webpack_require__.r(__webpack_exports__);
     getType: function getType(event) {
       var _this2 = this;
 
+      alert(event.target.value);
       this.loading = true;
       axios({
-        method: 'get',
+        method: 'post',
         url: 'get_type',
+        data: {
+          category_id: event.target.value
+        },
+        baseURL: this.baseURL
+      }).then(function (response) {
+        return _this2.loading = false, alert('gotten types'), _this2.types = response.data, console.log(response.data) //  this.$emit('update', response)
+        ;
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    getSubType: function getSubType(event) {
+      var _this3 = this;
+
+      alert(event.target.value);
+      this.loading = true;
+      axios({
+        method: 'post',
+        url: 'get_subtype',
         data: {
           type_id: event.target.value
         },
         baseURL: this.baseURL
       }).then(function (response) {
-        return _this2.loading = false, alert('get type'), _this2.types = response.data, console.log(_this2.types) //  this.$emit('update', response)
+        return _this3.loading = false, alert('gotten subtypes'), _this3.subtypes = response.data, console.log(response.data) //  this.$emit('update', response)
         ;
       })["catch"](function (error) {
         console.log(error);
@@ -37753,7 +37771,7 @@ var render = function() {
           _c(
             "select",
             {
-              staticClass: "selectpicker",
+              staticClass: "form-control",
               attrs: { name: "category_id", "data-width": "100%" },
               on: {
                 change: function($event) {
@@ -37791,7 +37809,7 @@ var render = function() {
           _c(
             "select",
             {
-              staticClass: "selectpicker",
+              staticClass: "form-control",
               attrs: { name: "type_id", "data-width": "100%" },
               on: {
                 change: function($event) {
@@ -37816,15 +37834,7 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _vm._m(0)
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-lg-4 col-xl-4" }, [
+    _c("div", { staticClass: "col-lg-4 col-xl-4" }, [
       _c(
         "div",
         {
@@ -37832,45 +37842,38 @@ var staticRenderFns = [
             "my_profile_setting_input ui_kit_select_search form-group"
         },
         [
-          _c("label", [_vm._v("Subtype")]),
+          _c("label", [_vm._v("Subtypes")]),
           _vm._v(" "),
           _c(
             "select",
             {
-              staticClass: "selectpicker",
-              attrs: { "data-live-search": "true", "data-width": "100%" }
+              staticClass: "form-control",
+              attrs: { name: "type_id", "data-width": "100%" },
+              on: {
+                change: function($event) {
+                  return _vm.getSubType($event)
+                }
+              }
             },
             [
-              _c("option", { attrs: { "data-tokens": "Status1" } }, [
-                _vm._v("1")
-              ]),
+              _c("option", [_vm._v("--Select Subtype--")]),
               _vm._v(" "),
-              _c("option", { attrs: { "data-tokens": "Status2" } }, [
-                _vm._v("2")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { "data-tokens": "Status3" } }, [
-                _vm._v("3")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { "data-tokens": "Status4" } }, [
-                _vm._v("4")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { "data-tokens": "Status5" } }, [
-                _vm._v("5")
-              ]),
-              _vm._v(" "),
-              _c("option", { attrs: { "data-tokens": "Status6" } }, [
-                _vm._v("Other")
-              ])
-            ]
+              _vm._l(_vm.subtypes, function(_subtype) {
+                return _c(
+                  "option",
+                  { key: _subtype.index, domProps: { value: _subtype.id } },
+                  [_vm._v(_vm._s(_subtype.name))]
+                )
+              })
+            ],
+            2
           )
         ]
       )
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

@@ -29,20 +29,77 @@ class ListingController extends Controller
 
     }
 
-    public function get_type()
+    public function get_type(Request $request)
     {
-        //
-        $types = Type::all();
+        $category = Category::where('id', $request->category_id)->first();
 
-        return $types;
+        $category_name = $category->name;
+
+        // return $category_name;
+
+        if ($category_name == 'Rent') {
+            # code...
+            $types = Type::whereIn('name', ['Flat','House', 'Land', 'Commercial Property', 'Event Center/venue'])->get();
+
+            return $types;
+        
+        }
+        if ($category_name == 'Sale') {
+            # code...
+            $types = Type::whereIn('name', ['Flat','House', 'Land', 'Commercial Property',])->get();
+
+            return $types;
+        }
+
+        if ($category_name == 'Joint Venture') {
+            # code...
+            $types = Type::whereIn('name', ['Flat','House', 'Land', 'Commercial Property',])->get();
+
+            return $types;
+        }
+
+        if ($category_name == 'Short Let') {
+            # code...
+            $types = Type::whereIn('name', ['Flat','House', 'Land', 'Commercial Property',])->get();
+
+            return $types;
+        }
+        
+
     }
 
-    public function get_subtype()
+    public function get_subtype(Request $request)
     {
         //
-        $sub_type = SubType::all();
+        $type = Type::where('id', $request->type_id)->first();
 
-        return $sub_type;
+        $type_name = $type->name;
+
+        // return $category_name;
+
+        if ($type_name == 'Flat') {
+            # code...
+            $sub_types = SubType::whereIn('name', ['Mini Flat','Self Contain'])->get();
+
+            return $sub_types;
+        
+        }
+
+        if ($type_name == 'House') {
+            # code...
+            $sub_types = SubType::whereIn('name', ['Detached Bungalow','Detached Duplex', 'Semi Detached Duplex','Semi Detached Bungalow','Terraced Bungalow','Terraced Duplex'])->get();
+
+            return $sub_types;
+        
+        }
+
+        if ($type_name == 'Land') {
+            # code...
+            $sub_types = SubType::whereIn('name', ['Commercial Land','Industrial Land', 'Mixed use Land','Residential Land'])->get();
+
+            return $sub_types;
+        
+        }
     }
 
     /**
@@ -77,7 +134,7 @@ class ListingController extends Controller
     {
         //
 
-        
+
     }
 
     /**

@@ -89,9 +89,9 @@ Route::get('/search_results', 'HomePageController@search_results')->name('search
 
 Route::get('/get_categories', 'ListingController@get_categories')->name('get_categories');
 
-Route::get('/get_type', 'ListingController@get_type')->name('get_type');
+Route::post('/get_type', 'ListingController@get_type')->name('get_type');
 
-Route::get('/get_subtype', 'ListingController@get_subtype')->name('get_subtype');
+Route::post('/get_subtype', 'ListingController@get_subtype')->name('get_subtype');
 
 
 
