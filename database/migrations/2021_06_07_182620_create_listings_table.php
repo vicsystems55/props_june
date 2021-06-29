@@ -22,6 +22,12 @@ class CreateListingsTable extends Migration
             $table->string('title');
             $table->string('description');
 
+            $table->string('country')->default('Nigeria');
+            $table->string('state')->nullable();
+            $table->string('address')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('longitude')->nullable();
+
             $table->integer('bedrooms')->unsigned()->default('0');
             $table->integer('toilets')->unsigned()->default('0');
             $table->integer('bathrooms')->unsigned()->default('0');

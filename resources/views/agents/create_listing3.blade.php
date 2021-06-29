@@ -38,52 +38,18 @@
                 <div class="col-lg-12">
                     <h4 class="mb30"></h4>
                 </div>
+              
+    
+ 
                 <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="propertyId">Property ID</label>
-                        <input type="text" class="form-control" id="propertyId">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="propertyASize">Area Size</label>
-                        <input type="text" class="form-control" id="propertyASize">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="sizePrefix">Size Prefix</label>
-                        <input type="text" class="form-control" id="sizePrefix">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="landArea">Land Area</label>
-                        <input type="text" class="form-control" id="landArea">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="LASPostfix">Land Area Size Postfix</label>
-                        <input type="text" class="form-control" id="LASPostfix">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="bedRooms">Bedrooms</label>
-                        <input type="text" class="form-control" id="bedRooms">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="bathRooms">Bathrooms</label>
-                        <input type="text" class="form-control" id="bathRooms">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
+                    <div class="my_profile_setting_input ui_kit_select_search form-group">
                         <label for="garages">Garages</label>
-                        <input type="text" class="form-control" id="garages">
+                        <select  class="selectpicker" data-width="100%">
+
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        
+                        </select>
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-4">
@@ -98,13 +64,13 @@
                         <input type="text" class="form-control" id="yearBuild">
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-4">
+                <div class="col-lg-6 col-xl-6">
                     <div class="my_profile_setting_input form-group">
                         <label for="videoUrl">Video URL</label>
                         <input type="text" class="form-control" id="videoUrl">
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-4">
+                <div class="col-lg-6 col-xl-6">
                     <div class="my_profile_setting_input form-group">
                         <label for="virtualTour">360° Virtual Tour</label>
                         <input type="text" class="form-control" id="virtualTour">
@@ -113,7 +79,7 @@
                 <div class="col-xl-12">
                     <h4>Amenities</h4>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-2">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <ul class="ui_kit_checkbox selectable-list">
                         <li>
                             <div class="custom-control custom-checkbox">
@@ -147,7 +113,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-2">
+                <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <ul class="ui_kit_checkbox selectable-list">
                         <li>
                             <div class="custom-control custom-checkbox">

@@ -16,48 +16,83 @@
        
         <div class="my_dashboard_review mt30">
             <div class="row">
+     
+                <div class="col-lg-6 col-xl-6">
+                    <div class="my_profile_setting_input ui_kit_select_search form-group">
+                        <label>Country</label>
+                        <select class="selectpicker" data-live-search="true" data-width="100%">
+                            <option data-tokens="Turkey">Nigeria</option>
+                          
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-6">
+                    
+                    <div class="my_profile_setting_input ui_kit_select_search form-group">
+                        <label>State</label>
+                        <select class="selectpicker" data-live-search="true" data-width="100%">
+                            
+                            <option value='Abia'>Abia</option>
+                            <option value='Adamawa'>Adamawa</option>
+                            <option value='AkwaIbom'>AkwaIbom</option>
+                            <option value='Anambra'>Anambra</option>
+                            <option value='Bauchi'>Bauchi</option>
+                            <option value='Bayelsa'>Bayelsa</option>
+                            <option value='Benue'>Benue</option>
+                            <option value='Borno'>Borno</option>
+                            <option value='Cross River'>Cross River</option>
+                            <option value='Delta'>Delta</option>
+                            <option value='Ebonyi'>Ebonyi</option>
+                            <option value='Edo'>Edo</option>
+                            <option value='Ekiti'>Ekiti</option>
+                            <option value='Enugu'>Enugu</option>
+                            <option value='Gombe'>Gombe</option>
+                            <option value='Imo'>Imo</option>
+                            <option value='Jigawa'>Jigawa</option>
+                            <option value='Kaduna'>Kaduna</option>
+                            <option value='Kano'>Kano</option>
+                            <option value='Katsina'>Katsina</option>
+                            <option value='Kebbi'>Kebbi</option>
+                            <option value='Kogi'>Kogi</option>
+                            <option value='Kwara'>Kwara</option>
+                            <option value='Lagos'>Lagos</option>
+                            <option value='Nasarawa'>Nasarawa</option>
+                            <option value='Niger'>Niger</option>
+                            <option value='Ogun'>Ogun</option>
+                            <option value='Ondo'>Ondo</option>
+                            <option value='Osun'>Osun</option>
+                            <option value='Oyo'>Oyo</option>
+                            <option value='Plateau'>Plateau</option>
+                            <option value='Rivers'>Rivers</option>
+                            <option value='Sokoto'>Sokoto</option>
+                            <option value='Taraba'>Taraba</option>
+                            <option value='Yobe'>Yobe</option>
+                            <option value='Zamfara'>Zamafara</option>
+                          
+                        </select>
+                    </div>
+                </div>
+
                 <div class="col-lg-12">
-                    <h4 class="mb30"></h4>
+                
                     <div class="my_profile_setting_input form-group">
                         <label for="propertyAddress">Address</label>
                         <input type="text" class="form-control" id="propertyAddress">
                     </div>
                 </div>
+    
+           
+
                 <div class="col-lg-6 col-xl-6">
                     <div class="my_profile_setting_input form-group">
-                        <label for="propertyState">County / State</label>
-                        <input type="text" class="form-control" id="propertyState">
+                        <label for="googleMapLat">Latitude (for Google Maps)</label>
+                        <input type="text" class="form-control" id="googleMapLat">
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-6">
                     <div class="my_profile_setting_input form-group">
-                        <label for="propertyCity">City</label>
-                        <input type="text" class="form-control" id="propertyCity">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="neighborHood">Neighborhood</label>
-                        <input type="text" class="form-control" id="neighborHood">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="zipCode">Zip</label>
-                        <input type="text" class="form-control" id="zipCode">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4">
-                    <div class="my_profile_setting_input ui_kit_select_search form-group">
-                        <label>Country</label>
-                        <select class="selectpicker" data-live-search="true" data-width="100%">
-                            <option data-tokens="Turkey">Turkey</option>
-                            <option data-tokens="Iran">Iran</option>
-                            <option data-tokens="Iraq">Iraq</option>
-                            <option data-tokens="Spain">Spain</option>
-                            <option data-tokens="Greece">Greece</option>
-                            <option data-tokens="Portugal">Portugal</option>
-                        </select>
+                        <label for="googleMapLong">Longitude (for Google Maps)</label>
+                        <input type="text" class="form-control" id="googleMapLong">
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -65,31 +100,8 @@
                         <div class="h400 bdrs8" id="map-canvas"></div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="googleMapLat">Latitude (for Google Maps)</label>
-                        <input type="text" class="form-control" id="googleMapLat">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="googleMapLong">Longitude (for Google Maps)</label>
-                        <input type="text" class="form-control" id="googleMapLong">
-                    </div>
-                </div>
-                <div class="col-lg-4 col-xl-4">
-                    <div class="my_profile_setting_input ui_kit_select_search form-group">
-                        <label>Google Map Street View</label>
-                        <select class="selectpicker" data-live-search="true" data-width="100%">
-                            <option data-tokens="Turkey">Street View v1</option>
-                            <option data-tokens="Iran">Street View v2</option>
-                            <option data-tokens="Iraq">Street View v3</option>
-                            <option data-tokens="Spain">Street View v4</option>
-                            <option data-tokens="Greece">Street View v5</option>
-                            <option data-tokens="Portugal">Street View v6</option>
-                        </select>
-                    </div>
-                </div>
+
+        
                 <div class="col-xl-12">
                     <div class="my_profile_setting_input">
                         <a href="{{route('agents.create_listing')}}" class="btn btn1 float-left">Back</a>

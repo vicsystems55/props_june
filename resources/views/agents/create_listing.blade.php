@@ -43,7 +43,20 @@
                 </div>
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
-                        <label for="formGroupExampleArea">Area m<sup>2</sup></label>
+                        <label for="formGroupExamplePrice">Discount ( % ) </label>
+                        <input type="number"  class="form-control" id="formGroupExamplePrice">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-xl-4">
+                    <div class="my_profile_setting_input form-group">
+                        <label for="formGroupExampleArea">Total Area m<sup>2</sup></label>
+                        <input type="number" class="form-control" id="formGroupExampleArea">
+                    </div>
+                </div>
+
+                                <div class="col-lg-4 col-xl-4">
+                    <div class="my_profile_setting_input form-group">
+                        <label for="formGroupExampleArea">Covered Area m<sup>2</sup></label>
                         <input type="number" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
