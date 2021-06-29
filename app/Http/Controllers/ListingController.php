@@ -124,7 +124,7 @@ class ListingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function create_listing_step1(Request $request)
     {
         //
     }
