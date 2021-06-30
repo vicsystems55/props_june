@@ -121,7 +121,7 @@ data(){
                     data: {
                         type_id: event.target.value
                     },
-                    baseURL: this.baseURL
+                    baseURL: this.appurl
                   
                 })
                .then((response)=>(

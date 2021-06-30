@@ -2032,7 +2032,7 @@ __webpack_require__.r(__webpack_exports__);
         data: {
           type_id: event.target.value
         },
-        baseURL: this.baseURL
+        baseURL: this.appurl
       }).then(function (response) {
         return _this3.loading = false, alert('gotten subtypes'), _this3.subtypes = response.data, console.log(response.data) //  this.$emit('update', response)
         ;
