@@ -1982,7 +1982,7 @@ __webpack_require__.r(__webpack_exports__);
       types: [],
       subtypes: [],
       loading: false,
-      baseURL: "http://localhost/props_june/public/"
+      baseURL: this.appurl
     };
   },
   props: ['appurl'],

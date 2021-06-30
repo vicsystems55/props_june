@@ -42,7 +42,7 @@ data(){
         types: [],
         subtypes: [],
         loading: false,
-        baseURL: process.env.MIX_API_URL
+        baseURL: this.appurl
     }
 },
 
