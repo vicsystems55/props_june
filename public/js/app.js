@@ -2091,45 +2091,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -38057,144 +38018,99 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "my_dashboard_review mt20" }, [
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-lg-12" }, [
-          _c("h4", { staticClass: "mb30" }),
-          _vm._v(" "),
-          _c("button", { staticClass: "btn admore_btn mb30" }, [
-            _vm._v("Add More")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-xl-12" }, [
-          _c("div", { staticClass: "my_profile_setting_input form-group" }, [
-            _c("label", { attrs: { for: "planDsecription" } }, [
-              _vm._v("Plan Description")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "planDsecription" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-xl-4" }, [
-          _c("div", { staticClass: "my_profile_setting_input form-group" }, [
-            _c("label", { attrs: { for: "planBedrooms" } }, [
-              _vm._v("Plan Bedrooms")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "planBedrooms" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-xl-4" }, [
-          _c("div", { staticClass: "my_profile_setting_input form-group" }, [
-            _c("label", { attrs: { for: "planBathrooms" } }, [
-              _vm._v("Plan Bathrooms")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "planBathrooms" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-xl-4" }, [
-          _c("div", { staticClass: "my_profile_setting_input form-group" }, [
-            _c("label", { attrs: { for: "planPrice" } }, [
-              _vm._v("Plan Price")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "planPrice" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-xl-4" }, [
-          _c("div", { staticClass: "my_profile_setting_input form-group" }, [
-            _c("label", { attrs: { for: "planPostfix" } }, [
-              _vm._v("Price Postfix")
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "planPostfix" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-xl-4" }, [
-          _c("div", { staticClass: "my_profile_setting_input form-group" }, [
-            _c("label", { attrs: { for: "planSize" } }, [_vm._v("Plan Size")]),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "form-control",
-              attrs: { type: "text", id: "planSize" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-lg-6 col-xl-4" }, [
-          _c("div", { staticClass: "my_profile_setting_input form-group" }, [
-            _c("label", [_vm._v("Plan Image")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "avatar-upload" }, [
-              _c("div", { staticClass: "avatar-edit" }, [
-                _c("input", {
-                  staticClass: "btn btn-thm",
-                  attrs: {
-                    type: "file",
-                    id: "imageUpload",
-                    accept: ".png, .jpg, .jpeg"
-                  }
-                }),
-                _vm._v(" "),
-                _c("label", { attrs: { for: "imageUpload" } })
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "avatar-preview" }, [
-                _c("div", { attrs: { id: "imagePreview" } })
-              ])
-            ])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-xl-12" }, [
-          _c("div", { staticClass: "my_profile_setting_textarea mt30-991" }, [
-            _c("label", { attrs: { for: "planDescription" } }, [
-              _vm._v("Plan Description")
-            ]),
-            _vm._v(" "),
-            _c("textarea", {
-              staticClass: "form-control",
-              attrs: { id: "planDescription", rows: "7" }
-            })
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-xl-12" }, [
-          _c("div", { staticClass: "my_profile_setting_input" }, [
-            _c(
-              "a",
-              { staticClass: "btn btn1 float-left", attrs: { href: "" } },
-              [_vm._v("Back")]
-            ),
+    return _c("div", { staticClass: "col-lg-12" }, [
+      _c("ul", { staticClass: "mb0" }, [
+        _c("li", { staticClass: "list-inline-item" }, [
+          _c("div", { staticClass: "portfolio_item" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "images/property/fp1.jpg", alt: "fp1.jpg" }
+            }),
             _vm._v(" "),
             _c(
-              "a",
-              { staticClass: "btn btn2 float-right", attrs: { href: "" } },
-              [_vm._v("Finish")]
+              "div",
+              {
+                staticClass: "edu_stats_list",
+                attrs: {
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Delete",
+                  "data-original-title": "Delete"
+                }
+              },
+              [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("span", { staticClass: "flaticon-garbage" })
+                ])
+              ]
             )
           ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-inline-item" }, [
+          _c("div", { staticClass: "portfolio_item" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "images/property/fp2.jpg", alt: "fp2.jpg" }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "edu_stats_list",
+                attrs: {
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Delete",
+                  "data-original-title": "Delete"
+                }
+              },
+              [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("span", { staticClass: "flaticon-garbage" })
+                ])
+              ]
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _c("li", { staticClass: "list-inline-item" }, [
+          _c("div", { staticClass: "portfolio_item" }, [
+            _c("img", {
+              staticClass: "img-fluid",
+              attrs: { src: "images/property/fp3.jpg", alt: "fp3.jpg" }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "edu_stats_list",
+                attrs: {
+                  "data-toggle": "tooltip",
+                  "data-placement": "top",
+                  title: "Delete",
+                  "data-original-title": "Delete"
+                }
+              },
+              [
+                _c("a", { attrs: { href: "#" } }, [
+                  _c("span", { staticClass: "flaticon-garbage" })
+                ])
+              ]
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("div", { staticClass: "portfolio_upload" }, [
+          _c("input", { attrs: { type: "file", name: "myfile" } }),
+          _vm._v(" "),
+          _c("div", { staticClass: "icon" }, [
+            _c("span", { staticClass: "flaticon-download" })
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Drag and drop images here")])
         ])
       ])
     ])

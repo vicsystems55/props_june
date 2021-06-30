@@ -1,74 +1,35 @@
 <template>
-   <div class="my_dashboard_review mt20">
-            <div class="row">
-                <div class="col-lg-12">
-                    <h4 class="mb30"></h4>
-                    <button class="btn admore_btn mb30">Add More</button>
+    <div class="col-lg-12">
+        <ul class="mb0">
+            <li class="list-inline-item">
+                <div class="portfolio_item">
+                    <img class="img-fluid" src="images/property/fp1.jpg" alt="fp1.jpg">
+                    <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
                 </div>
-                <div class="col-xl-12">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="planDsecription">Plan Description</label>
-                        <input type="text" class="form-control" id="planDsecription">
+            </li>
+            <li class="list-inline-item">
+                <div class="portfolio_item">
+                    <img class="img-fluid" src="images/property/fp2.jpg" alt="fp2.jpg">
+                    <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
+                </div>
+            </li>
+            <li class="list-inline-item">
+                <div class="portfolio_item">
+                    <img class="img-fluid" src="images/property/fp3.jpg" alt="fp3.jpg">
+                    <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
+                </div>
+            </li>
+        </ul>
+
+
+        <div class="">
+                    <div class="portfolio_upload">
+                        <input type="file" name="myfile" />
+                        <div class="icon"><span class="flaticon-download"></span></div>
+                        <p>Drag and drop images here</p>
                     </div>
                 </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="planBedrooms">Plan Bedrooms</label>
-                        <input type="text" class="form-control" id="planBedrooms">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="planBathrooms">Plan Bathrooms</label>
-                        <input type="text" class="form-control" id="planBathrooms">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="planPrice">Plan Price</label>
-                        <input type="text" class="form-control" id="planPrice">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="planPostfix">Price Postfix</label>
-                        <input type="text" class="form-control" id="planPostfix">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label for="planSize">Plan Size</label>
-                        <input type="text" class="form-control" id="planSize">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-4">
-                    <div class="my_profile_setting_input form-group">
-                        <label>Plan Image</label>
-                        <div class="avatar-upload">
-                            <div class="avatar-edit">
-                                <input class="btn btn-thm" type="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-                                <label for="imageUpload"></label>
-                            </div>
-                            <div class="avatar-preview">
-                                <div id="imagePreview"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-12">
-                    <div class="my_profile_setting_textarea mt30-991">
-                        <label for="planDescription">Plan Description</label>
-                        <textarea class="form-control" id="planDescription" rows="7"></textarea>
-                    </div>
-                </div>
-                <div class="col-xl-12">
-                    <div class="my_profile_setting_input">
-                        <a href="" class="btn btn1 float-left">Back</a>
-                        <a href="" class="btn btn2 float-right">Finish</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
 </template>
 <script>
 

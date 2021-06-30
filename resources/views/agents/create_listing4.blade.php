@@ -21,35 +21,10 @@
                 <div class="col-lg-12">
                     <h4 class="mb30"></h4>
                 </div>
-                <div class="col-lg-12">
-                    <ul class="mb0">
-                        <li class="list-inline-item">
-                            <div class="portfolio_item">
-                                <img class="img-fluid" src="images/property/fp1.jpg" alt="fp1.jpg">
-                                <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="portfolio_item">
-                                <img class="img-fluid" src="images/property/fp2.jpg" alt="fp2.jpg">
-                                <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                            </div>
-                        </li>
-                        <li class="list-inline-item">
-                            <div class="portfolio_item">
-                                <img class="img-fluid" src="images/property/fp3.jpg" alt="fp3.jpg">
-                                <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-lg-12">
-                    <div class="portfolio_upload">
-                        <input type="file" name="myfile" />
-                        <div class="icon"><span class="flaticon-download"></span></div>
-                        <p>Drag and drop images here</p>
-                    </div>
-                </div>
+
+                <uploader-component></uploader-component>
+                
+                
 
                 <div class="col-xl-12">
                     <div class="my_profile_setting_input">
@@ -57,7 +32,11 @@
                         <a href="{{route('agents.create_listing5')}}" class="btn btn2 float-right">Next</a>
                     </div>
                 </div>
+
+
             </div>
+
+           
         </div>
        
     </div>
