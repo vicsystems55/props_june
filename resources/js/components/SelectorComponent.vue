@@ -46,7 +46,7 @@ data(){
     }
 },
 
-    props: ['parent_id'],
+    props: ['appurl'],
 
     methods: {
 
@@ -147,7 +147,7 @@ data(){
 
 
         mounted() {
-               console.log(this.baseURL)
+               console.log(this.appurl)
             this.getCategories()
         
 

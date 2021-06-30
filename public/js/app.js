@@ -1985,7 +1985,7 @@ __webpack_require__.r(__webpack_exports__);
       baseURL: "http://localhost/props_june/public/"
     };
   },
-  props: ['parent_id'],
+  props: ['appurl'],
   methods: {
     getCategories: function getCategories() {
       var _this = this;
@@ -2042,7 +2042,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    console.log(this.baseURL);
+    console.log(this.appurl);
     this.getCategories();
   }
 });

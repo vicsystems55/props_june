@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="col-xl-12">
-                    <selector-component></selector-component>
+                    <selector-component appurl="{{config('app.url')}}"></selector-component>
                     <div class="my_profile_setting_input pt-1">
                       
                         <a href="{{route('agents.create_listing2')}}" class="btn btn2 mt-1  float-right">Next</a>
