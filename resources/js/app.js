@@ -21,6 +21,7 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('selector-component', require('./components/SelectorComponent.vue').default);
+Vue.component('uploader-component', require('./components/UploaderComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
