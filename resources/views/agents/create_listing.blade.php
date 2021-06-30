@@ -1,7 +1,6 @@
 @extends('layouts.dashboard')
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.0.5/cdn.min.js" integrity="sha512-JzpmsnQFnevs64hXB/wyoAruXPo0nkBNuvZwKok/rsfBFUBLZUEssdz2wmq/gP5lohBeM4BNMHvcNkVxx23o/Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 @section('content')
 <div class="row">
     
