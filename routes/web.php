@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth'],  'prefix' => 'agents'], function(){
 
     Route::get('/create_listing', 'AgentsPageController@create_listing')->name('agents.create_listing');
 
-    Route::get('/create_listing2', 'AgentsPageController@create_listing2')->name('agents.create_listing2');
+    Route::get('/{listing_code}/create_listing2', 'AgentsPageController@create_listing2')->name('agents.create_listing2');
 
     Route::get('/create_listing3', 'AgentsPageController@create_listing3')->name('agents.create_listing3');
 

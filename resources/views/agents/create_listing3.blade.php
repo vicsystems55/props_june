@@ -25,9 +25,7 @@
         <div class="breadcrumb_content style2">
             <h2 class="breadcrumb_title">Detailed Information</h2>
             <p class="h4">STAGE 3/5</p>
-            <a class="badge badge-primary" href="{{route('agents.create_listing')}}">STAGE 1</a>
-            <a class="badge badge-primary" href="{{route('agents.create_listing2')}}">STAGE 2</a>
-            <a class="badge badge-primary" href="{{route('agents.create_listing3')}}">STAGE 3</a>
+         
           
         </div>
     </div>

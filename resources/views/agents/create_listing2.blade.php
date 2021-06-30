@@ -7,9 +7,7 @@
         <div class="breadcrumb_content style2">
             <h2 class="breadcrumb_title">Location Details</h2>
             <p class="h4">STAGE 2/5</p>
-            <a class="badge badge-primary" href="{{route('agents.create_listing')}}">STAGE 1</a>
-            <a class="badge badge-primary" href="{{route('agents.create_listing2')}}">STAGE 2</a>
-  
+           
         </div>
     </div>
     <div class="col-lg-12">
@@ -46,6 +44,7 @@
                             <option value='Edo'>Edo</option>
                             <option value='Ekiti'>Ekiti</option>
                             <option value='Enugu'>Enugu</option>
+                            <option value='F.C.T Abuja'>F.C.T Abuja</option>
                             <option value='Gombe'>Gombe</option>
                             <option value='Imo'>Imo</option>
                             <option value='Jigawa'>Jigawa</option>
@@ -97,7 +96,7 @@
                 </div>
                 <div class="col-lg-12">
                     <div class="my_profile_setting_input form-group">
-                        <div class="h400 bdrs8" id="map-canvas"></div>
+                        <location-component></location-component>
                     </div>
                 </div>
 

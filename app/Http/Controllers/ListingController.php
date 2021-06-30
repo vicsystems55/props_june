@@ -7,6 +7,7 @@ use App\Category;
 use App\Type;
 use App\SubType;
 use App\User;
+use Carbon\Carbon;
 use Auth;
 
 use Illuminate\Http\Request;
@@ -127,6 +128,99 @@ class ListingController extends Controller
     public function create_listing_step1(Request $request)
     {
         //
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'bedrooms' => 'required|numeric|min:0|max:10',
+            'toilets' => 'required|numeric|min:0|max:10',
+            'bathrooms' => 'required|numeric|min:0|max:10',
+            'parking' => 'required|numeric|min:0|max:10',
+            'total_area' => 'required|numeric|min:100|max:900000000|between:0,99999999.99',
+            'covered_area' => 'required|numeric|min:100|max:900000000|between:0,99999999.99',
+            'price' => 'required|numeric|min:20000|between:0,99999999.99',
+            'discount' => 'required|numeric|min:0|max:90',
+        ]);
+
+
+        // dd($request->all());
+
+        $user_id = Auth::user()->id;
+
+        $listing = Listing::create([
+            'listing_code' => Carbon::now()->timestamp,
+            'agent_id' => $user_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'bedrooms' => $request->bedrooms,
+            'toilets' => $request->toilets,
+            'bathrooms' => $request->bathrooms,
+            'parking' => $request->parking,
+            'title' => $request->title,
+            'total_area' => $request->total_area,
+            'covered_area' => $request->covered_area,
+            'price' => $request->price,
+            'discount' => $request->discount,
+            'type_id' => $request->type_id,
+            'sub_type_id' => $request->sub_type_id,
+            'category_id' => $request->category_id,
+            
+        ]);
+
+
+
+
+
+        return redirect()->route('agents.create_listing2', $listing->listing_code);
+    }
+
+    public function create_listing_step2(Request $request)
+    {
+        //
+
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'bedrooms' => 'required|numeric|min:0|max:10',
+            'toilets' => 'required|numeric|min:0|max:10',
+            'bathrooms' => 'required|numeric|min:0|max:10',
+            'parking' => 'required|numeric|min:0|max:10',
+            'total_area' => 'required|numeric|min:100|max:900000000|between:0,99999999.99',
+            'covered_area' => 'required|numeric|min:100|max:900000000|between:0,99999999.99',
+            'price' => 'required|numeric|min:20000|between:0,99999999.99',
+            'discount' => 'required|numeric|min:0|max:90',
+        ]);
+
+
+        // dd($request->all());
+
+        $user_id = Auth::user()->id;
+
+        $listing = Listing::create([
+            'listing_code' => Carbon::now()->timestamp,
+            'agent_id' => $user_id,
+            'title' => $request->title,
+            'description' => $request->description,
+            'bedrooms' => $request->bedrooms,
+            'toilets' => $request->toilets,
+            'bathrooms' => $request->bathrooms,
+            'parking' => $request->parking,
+            'title' => $request->title,
+            'total_area' => $request->total_area,
+            'covered_area' => $request->covered_area,
+            'price' => $request->price,
+            'discount' => $request->discount,
+            'type_id' => $request->type_id,
+            'sub_type_id' => $request->sub_type_id,
+            'category_id' => $request->category_id,
+            
+        ]);
+
+
+
+
+
+        return redirect()->route('agents.create_listing2');
     }
 
 
