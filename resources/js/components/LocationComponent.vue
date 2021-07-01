@@ -1,11 +1,46 @@
 <template>
     <div class="row">
 
-        <div class="h400 bdrs8" id="map-canvas"></div>
+        <GmapMap
+            :center="{lat:10, lng:10}"
+            :zoom="7"
+            map-type-id="terrain"
+            style="width: 100%; height: 400px"
+            >
+
+        </GmapMap>
+            
 
     </div>
 </template>
 <script>
+
+import * as VueGoogleMaps from 'vue2-google-maps'
+ 
+Vue.use(VueGoogleMaps, {
+  load: {
+    key: 'AIzaSyAY6Kq0GCBIXTIz0HlD7i_9bgO-nmoOvnw',
+    libraries: 'places', // This is required if you use the Autocomplete plugin
+    // OR: libraries: 'places,drawing'
+    // OR: libraries: 'places,drawing,visualization'
+    // (as you require)
+ 
+    //// If you want to set the version, you can do so:
+    // v: '3.26',
+  },
+ 
+  //// If you intend to programmatically custom event listener code
+  //// (e.g. `this.$refs.gmap.$on('zoom_changed', someFunc)`)
+  //// instead of going through Vue templates (e.g. `<GmapMap @zoom_changed="someFunc">`)
+  //// you might need to turn this on.
+  // autobindAllEvents: false,
+ 
+  //// If you want to manually install components, e.g.
+  //// import {GmapMarker} from 'vue2-google-maps/src/components/marker'
+  //// Vue.component('GmapMarker', GmapMarker)
+  //// then disable the following:
+  // installComponents: true,
+})
 
 export default {
 
@@ -23,96 +58,6 @@ data(){
 
     methods: {
 
-            getCategories(){
-
-             this.loading = true;
-
-                axios({
-                    method:'get',
-                    url:'get_categories',
-                    baseURL: this.baseURL
-                  
-                })
-               .then((response)=>(
-                    this.loading = false,
-              
-                    console.log(response.data),
-                     this.categories = response.data
-             
-                              
-                        //  this.$emit('update', response)
-                    
-
-                ))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
- 
-            },
-
-            getType(event){
-
-              
-
-             this.loading = true;
-
-                axios({
-                    method:'post',
-                    url:'get_type',
-                    data: {
-                        category_id: event.target.value
-                    },
-                    baseURL: this.baseURL
-                  
-                })
-               .then((response)=>(
-                    this.loading = false,
-              
-                     
-                     this.types = response.data,
-                     console.log(response.data)             
-                              
-                        //  this.$emit('update', response)
-                    
-
-                ))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
- 
-            },
-
-                        getSubType(event){
-
-             
-
-             this.loading = true;
-
-                axios({
-                    method:'post',
-                    url:'get_subtype',
-                    data: {
-                        type_id: event.target.value
-                    },
-                    baseURL: this.appurl
-                  
-                })
-               .then((response)=>(
-                    this.loading = false,
-              
-                  
-                     this.subtypes = response.data,
-                     console.log(response.data)             
-                              
-                        //  this.$emit('update', response)
-                    
-
-                ))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
- 
-            },
 
 
         
@@ -120,9 +65,10 @@ data(){
 
 
         mounted() {
-               console.log(this.appurl)
-            this.getCategories()
-        
+              
+       
+
+ 
 
          
         },
