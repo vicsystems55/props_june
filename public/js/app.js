@@ -1932,6 +1932,191 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PlanUploaderComponent.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PlanUploaderComponent.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_file_agent__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-file-agent */ "./node_modules/vue-file-agent/dist/vue-file-agent.umd.js");
+/* harmony import */ var vue_file_agent__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue_file_agent__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var vue_file_agent_dist_vue_file_agent_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-file-agent/dist/vue-file-agent.css */ "./node_modules/vue-file-agent/dist/vue-file-agent.css");
+/* harmony import */ var vue_file_agent_dist_vue_file_agent_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(vue_file_agent_dist_vue_file_agent_css__WEBPACK_IMPORTED_MODULE_2__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_file_agent__WEBPACK_IMPORTED_MODULE_1___default.a);
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      categories: [],
+      images: [],
+      subtypes: [],
+      loading: false,
+      baseURL: process.env.MIX_API_URL,
+      fileRecords: [],
+      uploadUrl: this.appurl + 'upload_plan',
+      uploadHeaders: {
+        'X-Test-Header': 'vue-file-agent',
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      fileRecordsForUpload: [] // maintain an upload queue
+
+    };
+  },
+  props: ['appurl', 'listingcode'],
+  methods: {
+    getPic: function getPic(img) {
+      return this.appurl + 'floor_plans/' + img;
+    },
+    get_plans: function get_plans() {
+      var _this = this;
+
+      axios.get(this.appurl + 'get_plans', {// cbo_id: this.cbo_id,
+        // date: this.date,
+        // file_upload: this.newfile_name,
+        // text_report: this.outputData.blocks,
+      }).then(function (response) {
+        return (// this.loading = false,
+          _this.images = response.data, console.log(response) //  this.results = response.data
+
+        );
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    remove_image: function remove_image(image_id) {
+      var _this2 = this;
+
+      // alert(image_id);
+      axios.post(this.appurl + 'remove_image', {
+        image_id: image_id // date: this.date,
+        // file_upload: this.newfile_name,
+        // text_report: this.outputData.blocks,
+
+      }).then(function (response) {
+        return (// this.loading = false,
+          _this2.images = response.data, _this2.get_plans(), console.log(response) //  this.results = response.data
+
+        );
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    shout: function shout() {},
+    onUpload: function onUpload(responses) {
+      console.log(responses[0]); // alert(responses[0]);
+
+      this.get_plans(); //   console.log(responses[0].data);
+    },
+    uploadFiles: function uploadFiles() {
+      // Using the default uploader. You may use another uploader instead.
+      this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload);
+      this.fileRecordsForUpload = [];
+    },
+    deleteUploadedFile: function deleteUploadedFile(fileRecord) {
+      // Using the default uploader. You may use another uploader instead.
+      this.$refs.vueFileAgent.deleteUpload(this.uploadUrl, this.uploadHeaders, fileRecord);
+    },
+    filesSelected: function filesSelected(fileRecordsNewlySelected) {
+      var validFileRecords = fileRecordsNewlySelected.filter(function (fileRecord) {
+        return !fileRecord.error;
+      });
+      this.fileRecordsForUpload = this.fileRecordsForUpload.concat(validFileRecords);
+    },
+    onBeforeDelete: function onBeforeDelete(fileRecord) {
+      var i = this.fileRecordsForUpload.indexOf(fileRecord);
+
+      if (i !== -1) {
+        // queued file, not yet uploaded. Just remove from the arrays
+        this.fileRecordsForUpload.splice(i, 1);
+        var k = this.fileRecords.indexOf(fileRecord);
+        if (k !== -1) this.fileRecords.splice(k, 1);
+      } else {
+        if (confirm('Are you sure you want to delete?')) {
+          this.$refs.vueFileAgent.deleteFileRecord(fileRecord); // will trigger 'delete' event
+        }
+      }
+    },
+    fileDeleted: function fileDeleted(fileRecord) {
+      var i = this.fileRecordsForUpload.indexOf(fileRecord);
+
+      if (i !== -1) {
+        this.fileRecordsForUpload.splice(i, 1);
+      } else {
+        this.deleteUploadedFile(fileRecord);
+      }
+    }
+  },
+  mounted: function mounted() {
+    this.get_plans();
+  }
+});
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SelectorComponent.vue?vue&type=script&lang=js&":
 /*!****************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SelectorComponent.vue?vue&type=script&lang=js& ***!
@@ -2164,7 +2349,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_file_agent__WEBPACK_IMPORTED_
     remove_image: function remove_image(image_id) {
       var _this2 = this;
 
-      alert(image_id);
+      // alert(image_id);
       axios.post(this.appurl + 'remove_image', {
         image_id: image_id // date: this.date,
         // file_upload: this.newfile_name,
@@ -41771,6 +41956,144 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PlanUploaderComponent.vue?vue&type=template&id=7e7191ab&":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/PlanUploaderComponent.vue?vue&type=template&id=7e7191ab& ***!
+  \************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col-lg-12 mx-auto" }, [
+    _c(
+      "div",
+      { staticClass: "row" },
+      _vm._l(_vm.images, function(image) {
+        return _c("div", { key: image.id, staticClass: "col-md-4 p-3" }, [
+          _c("div", [
+            _c("img", {
+              staticClass: "shadow",
+              staticStyle: {
+                height: "230px",
+                width: "230px",
+                "object-fit": "cover",
+                "border-radius": "20px"
+              },
+              attrs: { src: _vm.getPic(image.img_path) }
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-danger",
+                staticStyle: {
+                  position: "absolute",
+                  "margin-top": "2px",
+                  "margin-left": "-80px",
+                  width: "90px",
+                  height: "90px",
+                  "border-radius": "50%"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.remove_image(image.id)
+                  }
+                }
+              },
+              [_vm._v("X")]
+            )
+          ])
+        ])
+      }),
+      0
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col-md-6 mx-auto" },
+      [
+        _c("h4", { staticClass: "text-center" }, [
+          _vm._v("Upload Floor Plans")
+        ]),
+        _vm._v(" "),
+        _c("VueFileAgent", {
+          ref: "vueFileAgent",
+          attrs: {
+            theme: "grid",
+            multiple: false,
+            deletable: true,
+            meta: true,
+            accept: "image/*,.zip",
+            maxSize: "10MB",
+            maxFiles: 14,
+            helpText: "Choose images or zip files",
+            errorText: {
+              type: "Invalid file type. Only images or zip Allowed",
+              size: "Files should not exceed 10MB in size"
+            }
+          },
+          on: {
+            select: function($event) {
+              return _vm.filesSelected($event)
+            },
+            beforedelete: function($event) {
+              return _vm.onBeforeDelete($event)
+            },
+            delete: function($event) {
+              return _vm.fileDeleted($event)
+            },
+            upload: function($event) {
+              return _vm.onUpload($event)
+            }
+          },
+          model: {
+            value: _vm.fileRecords,
+            callback: function($$v) {
+              _vm.fileRecords = $$v
+            },
+            expression: "fileRecords"
+          }
+        }),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "btn btn-outline-secondary btn-block col-md-6 mx-auto mt-2",
+            attrs: { disabled: !_vm.fileRecordsForUpload.length },
+            on: {
+              click: function($event) {
+                return _vm.uploadFiles()
+              }
+            }
+          },
+          [
+            _vm._v(
+              "\n  Upload " +
+                _vm._s(_vm.fileRecordsForUpload.length) +
+                " files\n"
+            )
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/SelectorComponent.vue?vue&type=template&id=6eec3bfa&":
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/SelectorComponent.vue?vue&type=template&id=6eec3bfa& ***!
@@ -41968,7 +42291,7 @@ var render = function() {
       { staticClass: "col-md-6 mx-auto" },
       [
         _c("h4", { staticClass: "text-center" }, [
-          _vm._v("Upload Vehicle Picture")
+          _vm._v("Upload Listing Images")
         ]),
         _vm._v(" "),
         _c("VueFileAgent", {
@@ -54281,6 +54604,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('selector-component', __webpack_require__(/*! ./components/SelectorComponent.vue */ "./resources/js/components/SelectorComponent.vue")["default"]);
 Vue.component('uploader-component', __webpack_require__(/*! ./components/UploaderComponent.vue */ "./resources/js/components/UploaderComponent.vue")["default"]);
+Vue.component('plan-uploader-component', __webpack_require__(/*! ./components/PlanUploaderComponent.vue */ "./resources/js/components/PlanUploaderComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -54402,6 +54726,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ExampleComponent_vue_vue_type_template_id_299e239e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/PlanUploaderComponent.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/PlanUploaderComponent.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PlanUploaderComponent_vue_vue_type_template_id_7e7191ab___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PlanUploaderComponent.vue?vue&type=template&id=7e7191ab& */ "./resources/js/components/PlanUploaderComponent.vue?vue&type=template&id=7e7191ab&");
+/* harmony import */ var _PlanUploaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PlanUploaderComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/PlanUploaderComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _PlanUploaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _PlanUploaderComponent_vue_vue_type_template_id_7e7191ab___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _PlanUploaderComponent_vue_vue_type_template_id_7e7191ab___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/PlanUploaderComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/PlanUploaderComponent.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/PlanUploaderComponent.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanUploaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./PlanUploaderComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PlanUploaderComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanUploaderComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/PlanUploaderComponent.vue?vue&type=template&id=7e7191ab&":
+/*!******************************************************************************************!*\
+  !*** ./resources/js/components/PlanUploaderComponent.vue?vue&type=template&id=7e7191ab& ***!
+  \******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanUploaderComponent_vue_vue_type_template_id_7e7191ab___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./PlanUploaderComponent.vue?vue&type=template&id=7e7191ab& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/PlanUploaderComponent.vue?vue&type=template&id=7e7191ab&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanUploaderComponent_vue_vue_type_template_id_7e7191ab___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_PlanUploaderComponent_vue_vue_type_template_id_7e7191ab___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

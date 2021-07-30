@@ -4,7 +4,7 @@
 <div class="col-lg-4 col-xl-4 mb10">
     <div class="breadcrumb_content style2 mb30-991">
         <h2 class="breadcrumb_title">My Properties</h2>
-        <p>We are glad to see you again!</p>
+        
     </div>
 </div>
 <div class="col-lg-8 col-xl-8">
@@ -43,130 +43,52 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @forelse ($listings as $listing)
+
                         <tr>
                             <th scope="row">
                                 <div class="feat_property list favorite_page style2">
                                     <div class="thumb">
-                                        <img class="img-whp" src="images/property/fp1.jpg" alt="fp1.jpg">
+                                        <img class="img-whp" src="{{config('app.url')}}listing_images/{{$listing->images[0]->img_path}}" alt="fp1.jpg">
                                         <div class="thmb_cntnt">
                                             <ul class="tag mb0">
                                                 <li class="list-inline-item dn"></li>
-                                                <li class="list-inline-item"><a href="#">For Rent</a></li>
+                                                
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="details">
                                         <div class="tc_content">
-                                            <h4>Renovated Apartment</h4>
-                                            <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                            <a class="fp_price text-thm" href="#">$13,000<small>/mo</small></a>
+                                            <h4>{{$listing->title}}</h4>
+                                            <p><span class="flaticon-placeholder"></span>{{$listing->description}}</p>
+                                            <p><span class="flaticon-placeholder"></span> {{$listing->address}}</p>
+                                            <a class="fp_price text-thm" href="#">NGN {{number_format($listing->price, 2)}}<small></small></a>
                                         </div>
                                     </div>
                                 </div>
                             </th>
-                            <td>30 December, 2020</td>
-                            <td><span class="status_tag badge">Pending</span></td>
-                            <td>2,345</td>
+                            <td>{{$listing->created_at->format('d,M Y')}}</td>
+                            <td><span class="status_tag badge">{{$listing->status}}</span></td>
+                            <td>{{$listing->views}}</td>
                             <td>
                                 <ul class="view_edit_delete_list mb0">
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></li>
+                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="{{route('edit_listing', $listing->listing_code)}}"><span class="flaticon-edit"></span></a></li>
+                                    {{-- <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></li> --}}
                                 </ul>
                             </td>
                         </tr>
-                        <tr>
-                            <th scope="row">
-                                <div class="feat_property list favorite_page style2">
-                                    <div class="thumb">
-                                        <img class="img-whp" src="images/property/fp2.jpg" alt="fp2.jpg">
-                                        <div class="thmb_cntnt">
-                                            <ul class="tag mb0">
-                                                <li class="list-inline-item dn"></li>
-                                                <li class="list-inline-item"><a href="#">For Rent</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="details">
-                                        <div class="tc_content">
-                                            <h4>Renovated Apartment</h4>
-                                            <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                            <a class="fp_price text-thm" href="#">$13,000<small>/mo</small></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>30 December, 2020</td>
-                            <td><span class="status_tag badge2">Published</span></td>
-                            <td>2,345</td>
-                            <td>
-                                <ul class="view_edit_delete_list mb0">
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th class="active" scope="row">
-                                <div class="feat_property list favorite_page style2">
-                                    <div class="thumb">
-                                        <img class="img-whp" src="images/property/fp3.jpg" alt="fp3.jpg">
-                                        <div class="thmb_cntnt">
-                                            <ul class="tag mb0">
-                                                <li class="list-inline-item dn"></li>
-                                                <li class="list-inline-item"><a href="#">For Rent</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="details">
-                                        <div class="tc_content">
-                                            <h4>Renovated Apartment</h4>
-                                            <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                            <a class="fp_price text-thm" href="#">$13,000<small>/mo</small></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>30 December, 2020</td>
-                            <td><span class="status_tag badge3">Processing</span></td>
-                            <td>2,345</td>
-                            <td>
-                                <ul class="view_edit_delete_list mb0">
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">
-                                <div class="feat_property list favorite_page style2">
-                                    <div class="thumb">
-                                        <img class="img-whp" src="images/property/fp4.jpg" alt="fp4.jpg">
-                                        <div class="thmb_cntnt">
-                                            <ul class="tag mb0">
-                                                <li class="list-inline-item dn"></li>
-                                                <li class="list-inline-item"><a href="#">For Rent</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="details">
-                                        <div class="tc_content">
-                                            <h4>Renovated Apartment</h4>
-                                            <p><span class="flaticon-placeholder"></span> 1421 San Pedro St, Los Angeles, CA 90015</p>
-                                            <a class="fp_price text-thm" href="#">$13,000<small>/mo</small></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </th>
-                            <td>30 December, 2020</td>
-                            <td><span class="status_tag badge">Pending</span></td>
-                            <td>2,345</td>
-                            <td>
-                                <ul class="view_edit_delete_list mb0">
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Edit"><a href="#"><span class="flaticon-edit"></span></a></li>
-                                    <li class="list-inline-item" data-toggle="tooltip" data-placement="top" title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></li>
-                                </ul>
-                            </td>
-                        </tr>
+
+                        
+
+                        @empty
+
+                            <div class="c p-5 text-center">
+                                <h4 class="text-center">You have no listings yet..</h4>
+                            </div>
+                            
+                        @endforelse
+
+
                     </tbody>
                 </table>
             </div>

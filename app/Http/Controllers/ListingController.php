@@ -192,6 +192,7 @@ class ListingController extends Controller
         $request->validate([
             'country' => 'required',
             'state' => 'required',
+            'address' => 'required',
             'latitude' => 'required',
             'longitude' => 'required',
 
@@ -209,6 +210,7 @@ class ListingController extends Controller
 
             'country' => $request->country,
             'state' => $request->state,
+            'address' => $request->address,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             
@@ -229,48 +231,56 @@ class ListingController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Listing  $listing
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Listing $listing)
+    public function edit_listing($listing_code)
     {
-        //
+        # code...
+
+        session([
+            'listing_code' => $listing_code
+        ]);
+
+        // $listing = Listing::create([
+        //     'listing_code' => Session::get('listing_code'),
+        //     'agent_id' => $user_id
+        // ]);
+
+        return redirect('/agents/create_listing');
+
+
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Listing  $listing
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Listing $listing)
+    public function final_publish(Request $request)
     {
-        //
+        # code...
+
+        $user_id = Auth::user()->id;
+
+        $listing_code = Session::get('listing_code');
+
+
+        $listing = Listing::where('listing_code', $listing_code)->where('agent_id', $user_id)->first();
+
+        $listing->update([
+            'status' => 'live'
+        ]);
+
+        Session::forget('listing_code');
+
+        return redirect ('/publish_success');
+
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Listing  $listing
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Listing $listing)
+    public function publish_success()
     {
-        //
+        # code...
+
+        return view('agents.publish_successful');
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Listing  $listing
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Listing $listing)
-    {
-        //
-    }
+    
+
+
+
 }

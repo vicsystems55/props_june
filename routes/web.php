@@ -89,9 +89,9 @@ Route::get('/contact', 'HomePageController@contact')->name('contact');
 
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 
-Route::get('/all_listings', 'HomePageController@all_listings')->name('all_listings');
+Route::get('/listings', 'HomePageController@all_listings')->name('all_listings');
 
-Route::get('/single_listing', 'HomePageController@single_listing')->name('single_listing');
+Route::get('/listing', 'HomePageController@single_listing')->name('single_listing');
 
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 
@@ -104,6 +104,18 @@ Route::get('/get_images', 'ListingImageController@get_images')->name('get_images
 
 Route::post('/upload_image', 'ListingImageController@upload_image')->name('upload_image');
 
+Route::post('/remove_image', 'ListingImageController@remove_image')->name('remove_image');
+
+
+
+Route::get('/get_plans', 'ListingFloorPlanController@get_plans')->name('get_plans');
+
+Route::post('/upload_plan', 'ListingFloorPlanController@upload_plan')->name('upload_plan');
+
+Route::post('/remove_plan', 'ListingFloorPlanController@remove_plan')->name('remove_plan');
+
+
+
 Route::get('/get_categories', 'ListingController@get_categories')->name('get_categories');
 
 Route::post('/get_type', 'ListingController@get_type')->name('get_type');
@@ -112,7 +124,14 @@ Route::post('/get_subtype', 'ListingController@get_subtype')->name('get_subtype'
 
 Route::post('/create_listing_step1', 'ListingController@create_listing_step1')->name('create_listing_step1');
 
+Route::get('/edit_listing/{listing_code}', 'ListingController@edit_listing')->name('edit_listing');
+
 Route::post('/create_listing_step2', 'ListingController@create_listing_step2')->name('create_listing_step2');
+
+
+Route::post('/final_publish', 'ListingController@final_publish')->name('final_publish');
+
+Route::get('/publish_success', 'ListingController@publish_success')->name('publish_success');
 
 
 

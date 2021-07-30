@@ -95,9 +95,18 @@ class ListingImageController extends Controller
 
     }
 
-    public function remove_image()
+    public function remove_image(Request $request)
     {
-        return 124;
+        try {
+            //code...
+            $image = ListingImage::where('id', $request->image_id)->delete();
+
+            return $image;
+        } catch (\Throwable $th) {
+            //throw $th;
+
+            return $th;
+        }
     }
 
 

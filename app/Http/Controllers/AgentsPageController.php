@@ -139,8 +139,15 @@ class AgentsPageController extends Controller
     public function my_listings()
     {
         //
+        $user_id = Auth::user()->id;
 
-        return view('agents.my_listings');
+        $my_listings = Listing::with('images')->where('agent_id', $user_id)->where('status','live')->latest()->get();
+
+        // dd($my_listings);
+
+        return view('agents.my_listings',[
+            'listings' => $my_listings
+        ]);
     }
 
     public function published_listings()

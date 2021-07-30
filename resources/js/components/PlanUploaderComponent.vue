@@ -7,7 +7,7 @@
 
             <div >
                           <img style="height: 230px; width: 230px; object-fit: cover; border-radius: 20px;" class="shadow" :src="getPic(image.img_path)" >
-<button @click="remove_image(image.id)" class="btn btn-danger" style="position: absolute;  margin-top: 2px; margin-left: -80px; width: 90px; height: 90px; border-radius: 50%;" >X</button>
+                <button @click="remove_image(image.id)" class="btn btn-danger" style="position: absolute;  margin-top: 2px; margin-left: -80px; width: 90px; height: 90px; border-radius: 50%;" >X</button>
 
             </div>
             
@@ -20,7 +20,7 @@
 
     <div class="col-md-6 mx-auto">
 
-        <h4 class="text-center">Upload Listing Images</h4>
+        <h4 class="text-center">Upload Floor Plans</h4>
 
     
 
@@ -73,7 +73,7 @@ data(){
         baseURL: process.env.MIX_API_URL,
 
         fileRecords: [],
-        uploadUrl: this.appurl +'upload_image',
+        uploadUrl: this.appurl +'upload_plan',
         uploadHeaders: { 
             'X-Test-Header': 'vue-file-agent',
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -90,12 +90,12 @@ data(){
     methods: {
 
             getPic(img) {
-              return this.appurl +'listing_images/'+img;
+              return this.appurl +'floor_plans/'+img;
             },
 
-              get_images(){
+              get_plans(){
 
-                    axios.get(this.appurl+'get_images',{
+                    axios.get(this.appurl+'get_plans',{
                         // cbo_id: this.cbo_id,
                         // date: this.date,
                         // file_upload: this.newfile_name,
@@ -141,7 +141,7 @@ data(){
 
                     this.images = response.data,
 
-                    this.get_images(),
+                    this.get_plans(),
 
 
                     
@@ -165,7 +165,7 @@ data(){
 
             // alert(responses[0]);
 
-            this.get_images();
+            this.get_plans();
 
            
 
@@ -215,7 +215,7 @@ data(){
         mounted() {
              
         
-        this.get_images();
+        this.get_plans();
 
          
         },

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Listing;
+
+use App\ListingImage;
+
 class HomePageController extends Controller
 {
     //
@@ -40,6 +44,9 @@ class HomePageController extends Controller
 
     public function all_listings()
     {
+
+        
+
         
         return view('front_page.all_listings');
     }
