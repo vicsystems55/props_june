@@ -12,7 +12,7 @@
             <h4 class="text-center">You have successfully published this listing</h4>
 
             <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-            <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_ya4ycrti.json"  background="transparent"  speed="1"  style="width: 400px; height: 400px; "  class="mx-auto text-center" loop  autoplay></lottie-player>
+            <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_ya4ycrti.json"  background="transparent"  speed="1"  style="max-width: 400px; max-height: 400px; "  class="mx-auto text-center" loop  autoplay></lottie-player>
             <div class="mx-auto text-center">
                 <a href="{{route('agents.my_listings')}}" class="btn btn-danger btn-lg text-center">View Listings</a>
             </div>
