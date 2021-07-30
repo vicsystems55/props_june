@@ -56,6 +56,8 @@ class HomePageController extends Controller
 
         $listings = Listing::with('users')->with('images')->with('categories')->where('status', 'live')->latest()->get();
 
+
+
         // dd($listings);
         
         return view('front_page.search_results',[
@@ -63,10 +65,14 @@ class HomePageController extends Controller
         ]);
     }
 
-    public function single_listing()
+    public function single_listing($listing_code)
     {
-        
-        return view('front_page.single_listing');
+
+        $listing = Listing::with('users')->with('images')->with('categories')->where('listing_code', $listing_code)->first();
+
+        return view('front_page.single_listing', [
+            'listing' => $listing
+        ]);
     }
 
     public function subscription_plans()

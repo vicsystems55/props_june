@@ -91,7 +91,7 @@ Route::get('/blog', 'HomePageController@blog')->name('blog');
 
 Route::get('/listings', 'HomePageController@all_listings')->name('all_listings');
 
-Route::get('/listing', 'HomePageController@single_listing')->name('single_listing');
+Route::get('/listing/{listing_code}', 'HomePageController@single_listing')->name('single_listing');
 
 Route::get('/blog', 'HomePageController@blog')->name('blog');
 
