@@ -53,8 +53,14 @@ class HomePageController extends Controller
 
     public function search_results()
     {
+
+        $listings = Listing::with('users')->with('images')->with('categories')->where('status', 'live')->latest()->get();
+
+        // dd($listings);
         
-        return view('front_page.search_results');
+        return view('front_page.search_results',[
+            'listings' => $listings
+        ]);
     }
 
     public function single_listing()
