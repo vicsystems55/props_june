@@ -830,8 +830,9 @@
 									<div class="details">
 										<div class="tc_content">
 										<a href="{{route('single_listing', $listing->listing_code)}}" class="">
-											<p class="text-thm">{{$listing->title}}</p> <br>
-											<h4>{{$listing->description}}</h4>
+											<h4>{{$listing->title}}</h4>
+											<p class="text-thm">{{$listing->description}}</p> <br>
+											
 										</a>
 											<p><span class="flaticon-placeholder"></span> {{$listing->address}}</p>
 											<ul class="prop_details mb0">

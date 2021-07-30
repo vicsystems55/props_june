@@ -42298,7 +42298,7 @@ var render = function() {
           ref: "vueFileAgent",
           attrs: {
             theme: "grid",
-            multiple: false,
+            multiple: true,
             deletable: true,
             meta: true,
             accept: "image/*,.zip",

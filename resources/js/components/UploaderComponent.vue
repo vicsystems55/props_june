@@ -27,7 +27,7 @@
       <VueFileAgent
             ref="vueFileAgent"
             :theme="'grid'"
-            :multiple="false"
+            :multiple="true"
             :deletable="true"
             :meta="true"
             :accept="'image/*,.zip'"
