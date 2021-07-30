@@ -38,65 +38,65 @@
               
                     <div class="my_profile_setting_input form-group">
                         <label for="propertyTitle">Property Title</label>
-                        <input name="title" type="text" value="{{ old('title') }}" class="form-control" id="propertyTitle">
+                        <input name="title" type="text" value="{{ ($listing->title)??old('title') }}" class="form-control" id="propertyTitle">
                     </div>
                 </div>
                 <div class="col-lg-12">
                     <div class="my_profile_setting_textarea">
                         <label for="propertyDescription">Description</label>
-                        <textarea name="description" value="{{ old('description') }}" class="form-control" id="propertyDescription" rows="7"></textarea>
+                        <textarea name="description" value="{{ old('description') }}" class="form-control" id="propertyDescription" rows="7">{{ ($listing->description)??old('description') }}</textarea>
                     </div>
                 </div>
           
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExamplePrice">Price <span>&#8358;</span></label>
-                        <input type="number" name="price" value="{{ old('price') }}" class="form-control" id="formGroupExamplePrice">
+                        <input type="number" min="0" name="price" value="{{ ($listing->price)??old('price') }}" class="form-control" id="formGroupExamplePrice">
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExamplePrice">Discount ( % ) </label>
-                        <input type="number" name="discount"  value="{{ old('discount') }}" class="form-control" id="formGroupExamplePrice">
+                        <input type="number" min="0" name="discount"  value="{{ ($listing->discount)??old('discount') }}" class="form-control" id="formGroupExamplePrice">
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExampleArea">Total Area m<sup>2</sup></label>
-                        <input type="number" name="total_area" value="{{ old('total_area') }}" class="form-control" id="formGroupExampleArea">
+                        <input type="number" min="0" name="total_area" value="{{ ($listing->total_area)??old('total_area') }}" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
 
                                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExampleArea">Covered Area m<sup>2</sup></label>
-                        <input type="number" name="covered_area" value="{{ old('covered_area') }}" class="form-control" id="formGroupExampleArea">
+                        <input type="number" min="0" name="covered_area" value="{{ ($listing->covered_area)??old('covered_area') }}" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExampleArea">Bedrooms</label>
-                        <input type="number" name="bedrooms"  value="{{ old('bedrooms') }}" class="form-control" id="formGroupExampleArea">
+                        <input type="number" min="0" name="bedrooms"  value="{{ ($listing->bedrooms)??old('bedrooms') }}" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExampleArea">Toilets</label>
-                        <input type="number" name="toilets" value="{{ old('toilets') }}" class="form-control" id="formGroupExampleArea">
+                        <input type="number"min="0" name="toilets" value="{{ ($listing->toilets)??old('toilets') }}" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExampleArea">Bathrooms</label>
-                        <input type="number" name="bathrooms" value="{{ old('bathrooms') }}" class="form-control" id="formGroupExampleArea">
+                        <input type="number" min="0" name="bathrooms" value="{{ ($listing->bathrooms)??old('bathrooms') }}" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
                 <div class="col-lg-4 col-xl-4">
                     <div class="my_profile_setting_input form-group">
                         <label for="formGroupExampleArea">Parking</label>
-                        <input type="number" name="parking" value="{{ old('parking') }}" class="form-control" id="formGroupExampleArea">
+                        <input type="number" name="parking" value="{{ ($listing->parking)??old('parking') }}" class="form-control" id="formGroupExampleArea">
                     </div>
                 </div>
 

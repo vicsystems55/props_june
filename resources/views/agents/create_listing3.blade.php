@@ -181,7 +181,7 @@
                 </div>
                 <div class="col-xl-12">
                     <div class="my_profile_setting_input">
-                        <a href="{{route('agents.create_listing3')}}" class="btn btn1 float-left">Back</a>
+                        <a href="{{route('agents.create_listing2')}}" class="btn btn1 float-left">Back</a>
                         <a href="{{route('agents.create_listing4')}}" class="btn btn2 float-right">Next</a>
                     </div>
                 </div>

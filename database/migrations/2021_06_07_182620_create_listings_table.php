@@ -19,8 +19,8 @@ class CreateListingsTable extends Migration
             $table->boolean('premium')->default(0);
             $table->boolean('auto_boost')->default(0);
             $table->bigInteger('agent_id')->unsigned();
-            $table->string('title');
-            $table->longText('description');
+            $table->string('title')->nullable();
+            $table->longText('description')->nullable();
 
             $table->string('country')->default('Nigeria');
             $table->string('state')->nullable();
@@ -36,7 +36,7 @@ class CreateListingsTable extends Migration
             $table->string('total_area')->nullable();
             $table->string('covered_area')->nullable();
 
-            $table->double('price');
+            $table->double('price')->nullable();
             $table->string('discount')->default('0');
            
             
@@ -46,9 +46,9 @@ class CreateListingsTable extends Migration
             $table->integer('unlikes')->default('0');
 
 
-            $table->bigInteger('type_id')->unsigned();
-            $table->bigInteger('sub_type_id')->unsigned();
-            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('type_id')->unsigned()->nullable();
+            $table->bigInteger('sub_type_id')->unsigned()->nullable();
+            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->bigInteger('user_subscription_id')->unsigned()->nullable();
 
             $table->string('status')->default('inactive');

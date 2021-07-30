@@ -8,6 +8,8 @@ use App\User;
 
 use Auth;
 
+use Illuminate\Support\Facades\Hash;
+
 class UserProfileController extends Controller
 {
     //
@@ -27,10 +29,12 @@ class UserProfileController extends Controller
         ]);
 
         $user_data = User::where('id', $user_id)->update([
-            
+
+            'password' => Hash::make($request->new_password),
+
         ]);
 
-
+        return back()->with('');
 
 
 

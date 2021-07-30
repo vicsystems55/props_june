@@ -10,6 +10,8 @@ use App\User;
 use Carbon\Carbon;
 use Auth;
 
+use Session;
+
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -129,6 +131,9 @@ class ListingController extends Controller
     {
         //
 
+        $listing_code = Session::get('listing_code');
+
+
         $request->validate([
             'title' => 'required',
             'description' => 'required',
@@ -147,8 +152,12 @@ class ListingController extends Controller
 
         $user_id = Auth::user()->id;
 
-        $listing = Listing::create([
-            'listing_code' => Carbon::now()->timestamp,
+
+
+        $listing = Listing::updateOrCreate([
+            'listing_code' => $listing_code
+        ],[
+            'listing_code' => $listing_code,
             'agent_id' => $user_id,
             'title' => $request->title,
             'description' => $request->description,
@@ -171,12 +180,14 @@ class ListingController extends Controller
 
 
 
-        return redirect()->route('agents.create_listing2', $listing->listing_code);
+        return redirect()->route('agents.create_listing2');
     }
 
     public function create_listing_step2(Request $request)
     {
         //
+
+        $listing_code = Session::get('listing_code');
 
         $request->validate([
             'title' => 'required',

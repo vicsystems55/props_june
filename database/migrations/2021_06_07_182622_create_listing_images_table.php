@@ -17,7 +17,7 @@ class CreateListingImagesTable extends Migration
             $table->id();
             $table->bigInteger('listing_id')->unsigned();
             $table->string('img_path');
-            $table->integer('order')->unsigned();
+            $table->integer('order')->unsigned()->nullable();
             $table->string('status')->default('active');
 
             $table->foreign('listing_id')->references('id')->on('listings');

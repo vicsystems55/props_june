@@ -19,7 +19,7 @@
                     <h4 class="mb30"></h4>
                 </div>
 
-                <uploader-component></uploader-component>
+                <uploader-component appurl="{{config('app.url')}}"  ></uploader-component>
                 
                 
 

@@ -1,154 +1,188 @@
 <template>
-    <div class="col-lg-12">
-        <ul class="mb0">
-            <li class="list-inline-item">
-                <div class="portfolio_item">
-                    <img class="img-fluid" src="images/property/fp1.jpg" alt="fp1.jpg">
-                    <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                </div>
-            </li>
-            <li class="list-inline-item">
-                <div class="portfolio_item">
-                    <img class="img-fluid" src="images/property/fp2.jpg" alt="fp2.jpg">
-                    <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                </div>
-            </li>
-            <li class="list-inline-item">
-                <div class="portfolio_item">
-                    <img class="img-fluid" src="images/property/fp3.jpg" alt="fp3.jpg">
-                    <div class="edu_stats_list" data-toggle="tooltip" data-placement="top" title="Delete" data-original-title="Delete"><a href="#"><span class="flaticon-garbage"></span></a></div>
-                </div>
-            </li>
-        </ul>
+    <div class="col-lg-12 mx-auto">
 
 
-        <div class="">
-                    <div class="portfolio_upload">
-                        <input type="file" name="myfile" />
-                        <div class="icon"><span class="flaticon-download"></span></div>
-                        <p>Drag and drop images here</p>
-                    </div>
-                </div>
+        <div class="row">
+            <div v-for="image in images" :key="image.id" class="col-md-4 p-3">
+
+            <div >
+                          <img style="height: 230px; width: 230px; object-fit: cover; border-radius: 20px;" class="shadow" :src="getPic(image.img_path)" >
+<button class="btn btn-danger" style="position: absolute;  margin-top: 2px; margin-left: -80px; width: 90px; height: 90px; border-radius: 50%;" >X</button>
+
+            </div>
+            
+
+
+            </div>   
+
+
+        </div>
+
+    <div class="col-md-6 mx-auto">
+
+        <h4 class="text-center">Upload Vehicle Picture</h4>
+
+    
+
+      <VueFileAgent
+            ref="vueFileAgent"
+            :theme="'grid'"
+            :multiple="false"
+            :deletable="true"
+            :meta="true"
+            :accept="'image/*,.zip'"
+            :maxSize="'10MB'"
+            :maxFiles="14"
+            :helpText="'Choose images or zip files'"
+            :errorText="{
+            type: 'Invalid file type. Only images or zip Allowed',
+            size: 'Files should not exceed 10MB in size',
+            }"
+            @select="filesSelected($event)"
+            @beforedelete="onBeforeDelete($event)"
+            @delete="fileDeleted($event)"
+            v-model="fileRecords"
+            @upload="onUpload($event)"
+        ></VueFileAgent>
+  <button :disabled="!fileRecordsForUpload.length" class="btn btn-outline-secondary btn-block col-md-6 mx-auto mt-2" @click="uploadFiles()">
+    Upload {{ fileRecordsForUpload.length }} files
+  </button>
+
+    </div>
+
+    
+      
     </div>
 </template>
 <script>
+
+import Vue from 'vue';
+import VueFileAgent from 'vue-file-agent';
+import VueFileAgentStyles from 'vue-file-agent/dist/vue-file-agent.css';
+
+Vue.use(VueFileAgent);
 
 export default {
 
 data(){
     return{
         categories: [],
-        types: [],
+        images: [],
         subtypes: [],
         loading: false,
-        baseURL: process.env.MIX_API_URL
+        baseURL: process.env.MIX_API_URL,
+
+        fileRecords: [],
+        uploadUrl: this.appurl +'upload_pix',
+        uploadHeaders: { 
+            'X-Test-Header': 'vue-file-agent',
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        fileRecordsForUpload: [], // maintain an upload queue
+
+        
     }
 },
 
-    props: ['parent_id'],
+
+    props: ['appurl', 'listingcode'],
 
     methods: {
 
-            getCategories(){
-
-             this.loading = true;
-
-                axios({
-                    method:'get',
-                    url:'get_categories',
-                    baseURL: this.baseURL
-                  
-                })
-               .then((response)=>(
-                    this.loading = false,
-              
-                    console.log(response.data),
-                     this.categories = response.data
-             
-                              
-                        //  this.$emit('update', response)
-                    
-
-                ))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
- 
+            getPic(img) {
+              return this.appurl +'vehicle_pictures/'+img;
             },
 
-            getType(event){
+              get_images(){
 
-               alert(event.target.value);
-
-             this.loading = true;
-
-                axios({
-                    method:'post',
-                    url:'get_type',
-                    data: {
-                        category_id: event.target.value
-                    },
-                    baseURL: this.baseURL
-                  
-                })
-               .then((response)=>(
-                    this.loading = false,
-              
-                     alert('gotten types'),
-                     this.types = response.data,
-                     console.log(response.data)             
-                              
-                        //  this.$emit('update', response)
+                    axios.get(this.appurl+'get_images',{
+                        // cbo_id: this.cbo_id,
+                        // date: this.date,
+                        // file_upload: this.newfile_name,
+                        // text_report: this.outputData.blocks,
                     
 
-                ))
-                    .catch(function (error) {
-                        console.log(error);
-                    });
- 
-            },
+                    }).then((response)=>(
+                    // this.loading = false,
 
-                        getSubType(event){
 
-               alert(event.target.value);
+                   
 
-             this.loading = true;
+                    this.images = response.data,
 
-                axios({
-                    method:'post',
-                    url:'get_subtype',
-                    data: {
-                        type_id: event.target.value
-                    },
-                    baseURL: this.baseURL
-                  
-                })
-               .then((response)=>(
-                    this.loading = false,
-              
-                     alert('gotten subtypes'),
-                     this.subtypes = response.data,
-                     console.log(response.data)             
-                              
-                        //  this.$emit('update', response)
+
                     
 
-                ))
-                    .catch(function (error) {
+                    console.log(response)
+                    //  this.results = response.data
+
+                )).catch(function (error) {
                         console.log(error);
-                    });
- 
-            },
+                });
+
+      },
+
+      shout(){
+          
+      },
+
+        onUpload(responses) {
+
+            console.log(responses[0]);
+
+            // alert(responses[0]);
+
+            this.get_images();
+
+           
+
+        //   console.log(responses[0].data);
+        },
+      uploadFiles: function () {
+        // Using the default uploader. You may use another uploader instead.
+        this.$refs.vueFileAgent.upload(this.uploadUrl, this.uploadHeaders, this.fileRecordsForUpload);
+        this.fileRecordsForUpload = [];
+      },
+      deleteUploadedFile: function (fileRecord) {
+        // Using the default uploader. You may use another uploader instead.
+        this.$refs.vueFileAgent.deleteUpload(this.uploadUrl, this.uploadHeaders, fileRecord);
+      },
+      filesSelected: function (fileRecordsNewlySelected) {
+        var validFileRecords = fileRecordsNewlySelected.filter((fileRecord) => !fileRecord.error);
+        this.fileRecordsForUpload = this.fileRecordsForUpload.concat(validFileRecords);
+      },
+      onBeforeDelete: function (fileRecord) {
+        var i = this.fileRecordsForUpload.indexOf(fileRecord);
+        if (i !== -1) {
+        // queued file, not yet uploaded. Just remove from the arrays
+          this.fileRecordsForUpload.splice(i, 1);
+          var k = this.fileRecords.indexOf(fileRecord);
+          if (k !== -1) this.fileRecords.splice(k, 1);
+        } else {
+          if (confirm('Are you sure you want to delete?')) {
+            this.$refs.vueFileAgent.deleteFileRecord(fileRecord); // will trigger 'delete' event
+          }
+        }
+      },
+      fileDeleted: function (fileRecord) {
+        var i = this.fileRecordsForUpload.indexOf(fileRecord);
+        if (i !== -1) {
+          this.fileRecordsForUpload.splice(i, 1);
+        } else {
+          this.deleteUploadedFile(fileRecord);
+        }
+      },
 
 
-        
+
+
     },
 
 
         mounted() {
-               console.log(this.baseURL)
-            this.getCategories()
+             
         
+        this.get_images();
 
          
         },

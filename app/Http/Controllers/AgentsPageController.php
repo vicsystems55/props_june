@@ -8,7 +8,7 @@ use App\User;
 
 // use App\SubscriptionPlan;
 
-// use App\Listing;
+use App\Listing;
 
 // use App\Message;
 
@@ -27,6 +27,8 @@ use App\User;
 use Carbon\Carbon;
 
 use Auth;
+
+use Session;
 
 
 class AgentsPageController extends Controller
@@ -50,12 +52,60 @@ class AgentsPageController extends Controller
     {
         //
 
-        return view('agents.create_listing');
+        
+        $user_id = Auth::user()->id;
+
+        $listing_code = Session::get('listing_code');
+
+
+        $listing = Listing::where('listing_code', $listing_code)->where('agent_id', $user_id)->first();
+
+        // dd($user_id);
+
+        // dd($listing);
+
+        if ($listing) {
+            # code...
+
+            // dd($listing);
+
+            // Session::forget('listing_code');
+
+            // dd(Session::get('listing_code'));
+            
+        }else{
+
+           session([
+                'listing_code' => rand(11100,99999)
+            ]);
+
+            $listing = Listing::create([
+                'listing_code' => Session::get('listing_code'),
+                'agent_id' => $user_id
+            ]);
+
+            // dd($vehicle_listing);
+
+        
+
+        }
+
+        
+
+        return view('agents.create_listing',[
+            'listing' => $listing
+        ]);
     }
 
-    public function create_listing2($listing_code)
+    public function create_listing2()
     {
         //
+
+        $user_id = Auth::user()->id;
+
+        $listing_code = Session::get('listing_code');
+
+
 
         return view('agents.create_listing2',[
             'listing_code' => $listing_code

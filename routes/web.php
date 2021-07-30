@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth', 'agents'],  'prefix' => 'agents'], functi
 
     Route::get('/create_listing', 'AgentsPageController@create_listing')->name('agents.create_listing');
 
-    Route::get('/{listing_code}/create_listing2', 'AgentsPageController@create_listing2')->name('agents.create_listing2');
+    Route::get('/create_listing2', 'AgentsPageController@create_listing2')->name('agents.create_listing2');
 
     Route::get('/create_listing3', 'AgentsPageController@create_listing3')->name('agents.create_listing3');
 
@@ -100,7 +100,9 @@ Route::get('/subscription_plans', 'HomePageController@subscription_plans')->name
 Route::get('/search_results', 'HomePageController@search_results')->name('search_results');
 
 
+Route::get('/get_images', 'ListingImageController@get_images')->name('get_images');
 
+Route::post('/upload_image', 'ListingImageController@upload_image')->name('upload_image');
 
 Route::get('/get_categories', 'ListingController@get_categories')->name('get_categories');
 
