@@ -25,9 +25,9 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 
 //'middleware' => ['auth','agents'],
 
-Route::group(['middleware' => ['auth', 'agent'],  'prefix' => 'agents'], function(){
+Route::group(['middleware' => ['auth', 'agents'],  'prefix' => 'agents'], function(){
 
-    Route::get('/home', 'AgentsPageController@home')->name('agents.home');
+    Route::get('/', 'AgentsPageController@home')->name('agents.home');
 
     Route::get('/messages', 'AgentsPageController@messages')->name('agents.messages');
 
@@ -69,6 +69,14 @@ Route::group(['middleware' => ['auth', 'agent'],  'prefix' => 'agents'], functio
 Route::group(['middleware' => ['auth', 'admin'],  'prefix' => 'admin'], function(){
 
     Route::get('/', 'AdminPageController@home')->name('admin.home');
+
+    Route::get('/members', 'AdminPageController@members')->name('admin.members');
+
+    Route::get('/member', 'AdminPageController@member')->name('admin.member');
+
+    Route::get('/listings', 'AdminPageController@listings')->name('admin.listings');
+
+    Route::get('/listing', 'AdminPageController@listing')->name('admin.listing');
 
 });
 

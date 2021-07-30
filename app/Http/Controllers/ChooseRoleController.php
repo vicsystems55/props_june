@@ -13,7 +13,7 @@ class ChooseRoleController extends Controller
     public function index()
     {
         if (Auth::user()->role =='admin') {
-            return redirect('/admin/home');
+            return redirect('/admin');
         }
 
         elseif (Auth::user()->role =='agency') {
@@ -21,7 +21,7 @@ class ChooseRoleController extends Controller
         }
 
         elseif (Auth::user()->role =='agent') {
-            return redirect('/agents/home');
+            return redirect('/agents');
         }
 
         elseif (Auth::user()->role =='vendor') {

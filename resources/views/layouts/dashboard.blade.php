@@ -65,14 +65,29 @@
 	              
 		            </li>
 
-		            <li>
+		            {{-- <li>
 		                <a href="#"><span class="title">Blog</span></a>
 
 		            </li>
 		            <li class="last">
 		                <a href="page-contact.html"><span class="title">Contact</span></a>
-		            </li>
-					<li class="list-inline-item add_listing"><a href="{{route('agents.create_listing')}}"><span class="flaticon-plus"></span><span class="dn-lg"> Create Listing</span></a></li>
+		            </li> --}}
+
+
+					@if(Auth::user()->role == 'agent')
+
+					<li class="list-inline-item add_listing">
+						<a href="{{route('agents.create_listing')}}">
+							<span class="flaticon-plus"></span>
+							<span class="dn-lg"> Create Listing</span>
+						</a>
+					</li>
+
+
+					@endif
+
+
+
 
 	                <li class="user_setting">
 						<div class="dropdown">
@@ -120,12 +135,28 @@
 				</li>
 				
 			
-				<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-plus"></span> Create Listing</a></li>
+				@if(Auth::user()->role == 'agent')
+
+					<li class="cl_btn"><a class="btn btn-block btn-lg btn-thm circle" href="#"><span class="flaticon-plus"></span> Create Listing</a></li>
+
+				@endif
+			
 			</ul>
 		</nav>
 	</div>
 
-@include('inc.agent_sidebar')
+	@if(Auth::user()->role == 'agent')
+
+		@include('inc.agent_sidebar')
+
+	@elseif(Auth::user()->role == 'admin')
+
+		@include('inc.admin_sidebar')
+
+
+	@endif
+
+
 
 	<!-- Our Dashbord -->
 	<section class="our-dashbord dashbord bgc-f7 pb50">
@@ -155,7 +186,15 @@
 												<li class="{{ (request()->is('agents/home')) ? 'active' : '' }}"><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
 											</ul>
 
-											@else
+											@elseif(Auth::user()->role == 'admin')
+
+											<ul id="myDropdown" class="dropdown-content">
+												<li class="{{ (request()->is('admin/home')) ? 'active' : '' }}"><a href="{{route('agents.home')}}"><span class="flaticon-layers"></span> Dashboard</a></li>
+												<li class="{{ (request()->is('admin/my_listings/create_listing')) ? 'active' : '' }}"><a href="{{route('agents.create_listing')}}"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
+
+												
+												<li class="{{ (request()->is('admin/home')) ? 'active' : '' }}"><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
+											</ul>
 
 
 											@endif
