@@ -26,7 +26,7 @@
 
 		            </li>
 		            <li>
-		                <a href="{{route('about')}}"><span class="title">About</span></a>
+		                <a href="{{route('search_results')}}"><span class="title">Listings</span></a>
 		                <!-- Level Two-->
 
 		            </li>
@@ -87,8 +87,8 @@
 
 				</li>
 				<li><span>
-                <a href="{{route('about')}}">
-                About
+                <a href="{{route('search_results')}}">
+                Listings
                 </a>
                 </span>
 
