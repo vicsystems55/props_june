@@ -190,16 +190,11 @@ class ListingController extends Controller
         $listing_code = Session::get('listing_code');
 
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'bedrooms' => 'required|numeric|min:0|max:10',
-            'toilets' => 'required|numeric|min:0|max:10',
-            'bathrooms' => 'required|numeric|min:0|max:10',
-            'parking' => 'required|numeric|min:0|max:10',
-            'total_area' => 'required|numeric|min:100|max:900000000|between:0,99999999.99',
-            'covered_area' => 'required|numeric|min:100|max:900000000|between:0,99999999.99',
-            'price' => 'required|numeric|min:20000|between:0,99999999.99',
-            'discount' => 'required|numeric|min:0|max:90',
+            'country' => 'required',
+            'state' => 'required',
+            'latitude' => 'required',
+            'longitude' => 'required',
+
         ]);
 
 
@@ -207,23 +202,15 @@ class ListingController extends Controller
 
         $user_id = Auth::user()->id;
 
-        $listing = Listing::create([
-            'listing_code' => Carbon::now()->timestamp,
-            'agent_id' => $user_id,
-            'title' => $request->title,
-            'description' => $request->description,
-            'bedrooms' => $request->bedrooms,
-            'toilets' => $request->toilets,
-            'bathrooms' => $request->bathrooms,
-            'parking' => $request->parking,
-            'title' => $request->title,
-            'total_area' => $request->total_area,
-            'covered_area' => $request->covered_area,
-            'price' => $request->price,
-            'discount' => $request->discount,
-            'type_id' => $request->type_id,
-            'sub_type_id' => $request->sub_type_id,
-            'category_id' => $request->category_id,
+        $listing = Listing::updateOrCreate([
+            'listing_code' => $listing_code,
+            'agent_id' => $user_id
+        ],[
+
+            'country' => $request->country,
+            'state' => $request->state,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
             
         ]);
 
@@ -231,7 +218,7 @@ class ListingController extends Controller
 
 
 
-        return redirect()->route('agents.create_listing2');
+        return redirect()->route('agents.create_listing3');
     }
 
 

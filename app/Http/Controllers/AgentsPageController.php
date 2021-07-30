@@ -106,9 +106,12 @@ class AgentsPageController extends Controller
         $listing_code = Session::get('listing_code');
 
 
+        $listing = Listing::where('listing_code', $listing_code)->where('agent_id', $user_id)->first();
+
 
         return view('agents.create_listing2',[
-            'listing_code' => $listing_code
+            'listing_code' => $listing_code,
+            'listing' => $listing
         ]);
     }
 

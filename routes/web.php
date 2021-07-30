@@ -112,5 +112,7 @@ Route::post('/get_subtype', 'ListingController@get_subtype')->name('get_subtype'
 
 Route::post('/create_listing_step1', 'ListingController@create_listing_step1')->name('create_listing_step1');
 
+Route::post('/create_listing_step2', 'ListingController@create_listing_step2')->name('create_listing_step2');
+
 
 

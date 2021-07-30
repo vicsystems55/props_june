@@ -3,9 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\ListingImage;
+
+use App\Listing;
+
 use Illuminate\Http\Request;
 
 use Session;
+
+use Auth;
 
 class ListingImageController extends Controller
 {
@@ -18,8 +23,29 @@ class ListingImageController extends Controller
     {
         //
 
+        $user_id = Auth::user()->id;
 
-        return 1234;
+        $listing_code = Session::get('listing_code');
+
+
+        $listing = Listing::where('listing_code', $listing_code)->where('agent_id', $user_id)->first();
+
+        try {
+            //code...
+
+            $listing_images = ListingImage::where('listing_id', $listing->id)->latest()->get();
+
+        } catch (\Throwable $th) {
+            //throw $th;
+
+            return $th;
+        }
+
+        
+
+
+
+        return $listing_images;
     }
 
 
@@ -39,7 +65,7 @@ class ListingImageController extends Controller
 
         $user_id = Auth::user()->id;
 
-        $listing = Listing::where('listing_code', $listing_code)->where('user_id', $user_id )->first();
+        $listing = Listing::where('listing_code', $listing_code)->where('agent_id', $user_id )->first();
 
         $image = $request->file('file');
 
@@ -67,6 +93,11 @@ class ListingImageController extends Controller
         
         
 
+    }
+
+    public function remove_image()
+    {
+        return 124;
     }
 
 

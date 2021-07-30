@@ -9,6 +9,7 @@
 <meta name="keywords" content="advanced search custom, agency, agent, business, clean, corporate, directory, google maps, homes, listing, membership packages, property, real estate, real estate agent, realestate agency, realtor">
 <meta name="description" content="PropsEmpire - Find comfort">
 <meta name="CreativeLayers" content="ATFN">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <!-- css file -->
 <link rel="stylesheet" href="{{config('app.url')}}props_styles/css/bootstrap.min.css">
 <link rel="stylesheet" href="{{config('app.url')}}props_styles/css/style.css">

@@ -2131,7 +2131,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_file_agent__WEBPACK_IMPORTED_
       loading: false,
       baseURL: process.env.MIX_API_URL,
       fileRecords: [],
-      uploadUrl: this.appurl + 'upload_pix',
+      uploadUrl: this.appurl + 'upload_image',
       uploadHeaders: {
         'X-Test-Header': 'vue-file-agent',
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -2143,7 +2143,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_file_agent__WEBPACK_IMPORTED_
   props: ['appurl', 'listingcode'],
   methods: {
     getPic: function getPic(img) {
-      return this.appurl + 'vehicle_pictures/' + img;
+      return this.appurl + 'listing_images/' + img;
     },
     get_images: function get_images() {
       var _this = this;
@@ -2155,6 +2155,24 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_file_agent__WEBPACK_IMPORTED_
       }).then(function (response) {
         return (// this.loading = false,
           _this.images = response.data, console.log(response) //  this.results = response.data
+
+        );
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    },
+    remove_image: function remove_image(image_id) {
+      var _this2 = this;
+
+      alert(image_id);
+      axios.post(this.appurl + 'remove_image', {
+        image_id: image_id // date: this.date,
+        // file_upload: this.newfile_name,
+        // text_report: this.outputData.blocks,
+
+      }).then(function (response) {
+        return (// this.loading = false,
+          _this2.images = response.data, _this2.get_images(), console.log(response) //  this.results = response.data
 
         );
       })["catch"](function (error) {
@@ -41930,6 +41948,11 @@ var render = function() {
                   width: "90px",
                   height: "90px",
                   "border-radius": "50%"
+                },
+                on: {
+                  click: function($event) {
+                    return _vm.remove_image(image.id)
+                  }
                 }
               },
               [_vm._v("X")]

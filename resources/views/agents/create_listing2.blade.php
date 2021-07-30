@@ -13,12 +13,21 @@
     <div class="col-lg-12">
        
         <div class="my_dashboard_review mt30">
-            <div class="row">
+
+            @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <p class="alert alert-warning">{{$error}}</p>
+            @endforeach
+        @endif
+
+           <form action="{{route('create_listing_step2')}}" method="post">
+               @csrf
+               <div class="row">
      
                 <div class="col-lg-6 col-xl-6">
                     <div class="my_profile_setting_input ui_kit_select_search form-group">
                         <label>Country</label>
-                        <select class="selectpicker" data-live-search="true" data-width="100%">
+                        <select class="selectpicker" data-live-search="true" name="country" data-width="100%">
                             <option data-tokens="Turkey">Nigeria</option>
                           
                         </select>
@@ -28,8 +37,8 @@
                     
                     <div class="my_profile_setting_input ui_kit_select_search form-group">
                         <label>State</label>
-                        <select class="selectpicker" data-live-search="true" data-width="100%">
-                            
+                        <select class="selectpicker" data-live-search="true" name="state" data-width="100%">
+                            <option value='{{$listing->state?? old('state')}}'>Abia</option>
                             <option value='Abia'>Abia</option>
                             <option value='Adamawa'>Adamawa</option>
                             <option value='AkwaIbom'>AkwaIbom</option>
@@ -76,7 +85,7 @@
                 
                     <div class="my_profile_setting_input form-group">
                         <label for="propertyAddress">Address</label>
-                        <input type="text" class="form-control" id="propertyAddress">
+                        <input type="text" name="address" value="{{$listing->address??old('address')}}" class="form-control" id="propertyAddress">
                     </div>
                 </div>
     
@@ -84,14 +93,14 @@
 
                 <div class="col-lg-6 col-xl-6">
                     <div class="my_profile_setting_input form-group">
-                        <label for="googleMapLat">Latitude (for Google Maps)</label>
-                        <input type="text" class="form-control" id="googleMapLat">
+                        <label for="googleMapLat">Latitude (for Google Maps)(Optional)</label>
+                        <input type="text" name="latitude" value="{{$listing->latitude??old('latitude')}}" class="form-control" id="googleMapLat">
                     </div>
                 </div>
                 <div class="col-lg-6 col-xl-6">
                     <div class="my_profile_setting_input form-group">
-                        <label for="googleMapLong">Longitude (for Google Maps)</label>
-                        <input type="text" class="form-control" id="googleMapLong">
+                        <label for="googleMapLong">Longitude (for Google Maps)(Optional)</label>
+                        <input type="text" name="longitude" value="{{$listing->longitude??old('longitude')}}" class="form-control" id="googleMapLong">
                     </div>
                 </div>
                 <div class="col-lg-12">
@@ -104,10 +113,11 @@
                 <div class="col-xl-12">
                     <div class="my_profile_setting_input">
                         <a href="{{route('agents.create_listing')}}" class="btn btn1 float-left">Back</a>
-                        <a href="{{route('agents.create_listing3')}}" class="btn btn2 float-right">Next</a>
+                        <button type="submit" class="btn btn2 float-right">Next</button>
                     </div>
                 </div>
             </div>
+           </form>
         </div>
       
       

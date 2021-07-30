@@ -7,7 +7,7 @@
 
             <div >
                           <img style="height: 230px; width: 230px; object-fit: cover; border-radius: 20px;" class="shadow" :src="getPic(image.img_path)" >
-<button class="btn btn-danger" style="position: absolute;  margin-top: 2px; margin-left: -80px; width: 90px; height: 90px; border-radius: 50%;" >X</button>
+<button @click="remove_image(image.id)" class="btn btn-danger" style="position: absolute;  margin-top: 2px; margin-left: -80px; width: 90px; height: 90px; border-radius: 50%;" >X</button>
 
             </div>
             
@@ -73,7 +73,7 @@ data(){
         baseURL: process.env.MIX_API_URL,
 
         fileRecords: [],
-        uploadUrl: this.appurl +'upload_pix',
+        uploadUrl: this.appurl +'upload_image',
         uploadHeaders: { 
             'X-Test-Header': 'vue-file-agent',
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -90,7 +90,7 @@ data(){
     methods: {
 
             getPic(img) {
-              return this.appurl +'vehicle_pictures/'+img;
+              return this.appurl +'listing_images/'+img;
             },
 
               get_images(){
@@ -109,6 +109,39 @@ data(){
                    
 
                     this.images = response.data,
+
+
+                    
+
+                    console.log(response)
+                    //  this.results = response.data
+
+                )).catch(function (error) {
+                        console.log(error);
+                });
+
+      },
+
+                    remove_image(image_id){
+
+                      alert(image_id);
+
+                    axios.post(this.appurl+'remove_image',{
+                        image_id: image_id
+                        // date: this.date,
+                        // file_upload: this.newfile_name,
+                        // text_report: this.outputData.blocks,
+                    
+
+                    }).then((response)=>(
+                    // this.loading = false,
+
+
+                   
+
+                    this.images = response.data,
+
+                    this.get_images(),
 
 
                     
