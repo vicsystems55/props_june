@@ -781,7 +781,7 @@
 			</div>
 
 			<div class="row">
-					@forelse ($listings as $listing)
+					
 
 					<div class="col-lg-12">
 						<div class="row">
@@ -797,6 +797,7 @@
 							</div>
 						</div>
 						<div class="row">
+							@forelse ($listings as $listing)
 							<div class="col-md-6 col-lg-4">
 								<div class="feat_property home7 style4">
 									<div class="thumb">
@@ -828,10 +829,10 @@
 									</div>
 									<div class="details">
 										<div class="tc_content">
-<a href="{{route('single_listing', $listing->listing_code)}}" class="">
-	<p class="text-thm">{{$listing->title}}</p>
-	<h4>{{$listing->description}}</h4>
-</a>
+										<a href="{{route('single_listing', $listing->listing_code)}}" class="">
+											<p class="text-thm">{{$listing->title}}</p> <br>
+											<h4>{{$listing->description}}</h4>
+										</a>
 											<p><span class="flaticon-placeholder"></span> {{$listing->address}}</p>
 											<ul class="prop_details mb0">
 												<li class="list-inline-item"><a class="text-thm3" href="#">Beds: {{$listing->beds}}</a></li>
@@ -849,18 +850,20 @@
 									</div>
 								</div>
 							</div>
+
+							@empty
+
+							<div class="c p-5">
+								<h3 class="text-center">There no listings yet ...</h3>
+							</div>
+								
+							@endforelse
 					
 						</div>
 					</div>
 
 
-					@empty
 
-					<div class="c p-5">
-						<h3 class="text-center">There no listings yet ...</h3>
-					</div>
-						
-					@endforelse
 			</div>
 		</div>
 	</section>

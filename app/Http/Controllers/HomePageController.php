@@ -68,6 +68,8 @@ class HomePageController extends Controller
     public function single_listing($listing_code)
     {
 
+        $listingx = Listing::where('listing_code', $listing_code)->increment('views', 1);
+
         $listing = Listing::with('users')->with('images')->with('categories')->where('listing_code', $listing_code)->first();
 
         return view('front_page.single_listing', [
