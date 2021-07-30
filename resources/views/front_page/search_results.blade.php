@@ -788,7 +788,7 @@
 							<div class="grid_list_search_result style2">
 								<div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
 									<div class="left_area">
-										<p>{{$listings->count()}}</p>
+										<p>{{$listings->count()}} Properties</p>
 									</div>
 								</div>
 								<div class="col-sm-12 col-md-8 col-lg-9 col-xl-9">
@@ -831,7 +831,7 @@
 										<div class="tc_content">
 										<a href="{{route('single_listing', $listing->listing_code)}}" class="">
 											<h4>{{$listing->title}}</h4>
-											<p class="text-thm text-dark">{{substr($listing->description, 0, 200)}}</p> <br>
+											<p class="text-th text-dark">{{substr($listing->description, 0, 200)}}</p> <br>
 											
 										</a>
 											<p><span class="flaticon-placeholder"></span> {{$listing->address}}</p>
