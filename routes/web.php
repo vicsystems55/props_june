@@ -25,7 +25,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout')->name
 
 //'middleware' => ['auth','agents'],
 
-Route::group(['middleware' => ['auth'],  'prefix' => 'agents'], function(){
+Route::group(['middleware' => ['auth', 'agent'],  'prefix' => 'agents'], function(){
 
     Route::get('/home', 'AgentsPageController@home')->name('agents.home');
 
@@ -62,6 +62,13 @@ Route::group(['middleware' => ['auth'],  'prefix' => 'agents'], function(){
     Route::get('/my_profile', 'AgentsPageController@my_profile')->name('agents.my_profile');
 
 
+
+});
+
+
+Route::group(['middleware' => ['auth', 'admin'],  'prefix' => 'admin'], function(){
+
+    Route::get('/', 'AdminPageController@home')->name('admin.home');
 
 });
 

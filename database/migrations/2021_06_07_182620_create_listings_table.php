@@ -20,7 +20,7 @@ class CreateListingsTable extends Migration
             $table->boolean('auto_boost')->default(0);
             $table->bigInteger('agent_id')->unsigned();
             $table->string('title');
-            $table->string('description');
+            $table->longText('description');
 
             $table->string('country')->default('Nigeria');
             $table->string('state')->nullable();

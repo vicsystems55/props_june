@@ -139,18 +139,26 @@
 							<div class="dashboard_navigationbar dn db-992">
 								<div class="dropdown">
 									<button onclick="myFunction()" class="dropbtn"><i class="fa fa-bars pr10"></i> Dashboard Navigation</button>
-									<ul id="myDropdown" class="dropdown-content">
-										<li class="{{ (request()->is('agents/home')) ? 'active' : '' }}"><a href="{{route('agents.home')}}"><span class="flaticon-layers"></span> Dashboard</a></li>
-										<li class="{{ (request()->is('agents/messages')) ? 'active' : '' }}"><a href="{{route('agents.messages')}}"><span class="flaticon-envelope"></span> Message</a></li>
-										<li class="{{ (request()->is('agents/my_listings')) ? 'active' : '' }}"><a href="{{route('agents.my_listings')}}"><span class="flaticon-home"></span> My Properties</a></li>
-										<li class="{{ (request()->is('agents/my_favourites')) ? 'active' : '' }}"><a href="{{route('agents.my_favourites')}}"><span class="flaticon-heart"></span> My Favorites</a></li>
-										<li class="{{ (request()->is('agents/my_listings/published_listings')) ? 'active' : '' }}"><a href="{{route('agents.published_listings')}}"><span class="flaticon-magnifying-glass"></span> Saved Search</a></li>
-										<li class="{{ (request()->is('agents/my_listings/unpublished_listings')) ? 'active' : '' }}"><a href="{{route('agents.unpublished_listings')}}"><span class="flaticon-chat"></span> My Reviews</a></li>
-										<li class="{{ (request()->is('agents/my_plan')) ? 'active' : '' }}"><a href="{{route('agents.my_plan')}}"><span class="flaticon-box"></span> My Package</a></li>
-										<li class="{{ (request()->is('agents/my_profile')) ? 'active' : '' }}"><a href="{{route('agents.my_profile')}}"><span class="flaticon-user"></span> My Profile</a></li>
-										<li class="{{ (request()->is('agents/my_listings/create_listing')) ? 'active' : '' }}"><a href="{{route('agents.create_listing')}}"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
-										<li class="{{ (request()->is('agents/home')) ? 'active' : '' }}"><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
-									</ul>
+											@if(Auth::user()->role == 'agent')
+
+											<ul id="myDropdown" class="dropdown-content">
+												<li class="{{ (request()->is('agents/home')) ? 'active' : '' }}"><a href="{{route('agents.home')}}"><span class="flaticon-layers"></span> Dashboard</a></li>
+												<li class="{{ (request()->is('agents/my_listings/create_listing')) ? 'active' : '' }}"><a href="{{route('agents.create_listing')}}"><span class="flaticon-filter-results-button"></span> Add New Listing</a></li>
+												<li class="{{ (request()->is('agents/messages')) ? 'active' : '' }}"><a href="{{route('agents.messages')}}"><span class="flaticon-envelope"></span> Message</a></li>
+												<li class="{{ (request()->is('agents/my_listings')) ? 'active' : '' }}"><a href="{{route('agents.my_listings')}}"><span class="flaticon-home"></span> My Properties</a></li>
+												<li class="{{ (request()->is('agents/my_favourites')) ? 'active' : '' }}"><a href="{{route('agents.my_favourites')}}"><span class="flaticon-heart"></span> My Favorites</a></li>
+												<li class="{{ (request()->is('agents/my_listings/published_listings')) ? 'active' : '' }}"><a href="{{route('agents.published_listings')}}"><span class="flaticon-magnifying-glass"></span> Saved Search</a></li>
+												<li class="{{ (request()->is('agents/my_listings/unpublished_listings')) ? 'active' : '' }}"><a href="{{route('agents.unpublished_listings')}}"><span class="flaticon-chat"></span> My Reviews</a></li>
+												<li class="{{ (request()->is('agents/my_plan')) ? 'active' : '' }}"><a href="{{route('agents.my_plan')}}"><span class="flaticon-box"></span> My Package</a></li>
+												<li class="{{ (request()->is('agents/my_profile')) ? 'active' : '' }}"><a href="{{route('agents.my_profile')}}"><span class="flaticon-user"></span> My Profile</a></li>
+												
+												<li class="{{ (request()->is('agents/home')) ? 'active' : '' }}"><a href="page-login.html"><span class="flaticon-logout"></span> Logout</a></li>
+											</ul>
+
+											@else
+
+
+											@endif
 								</div>
 							</div>
 						</div>

@@ -1,6 +1,8 @@
 <template>
     <div class="row">
 
+
+
         <GmapMap
             :center="{lat:10, lng:10}"
             :zoom="7"
@@ -14,6 +16,7 @@
     </div>
 </template>
 <script>
+
 
 import * as VueGoogleMaps from 'vue2-google-maps'
  
