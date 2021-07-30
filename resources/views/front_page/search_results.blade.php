@@ -799,7 +799,7 @@
 						<div class="row">
 							@forelse ($listings as $listing)
 							<div class="col-md-6 col-lg-4">
-								<div class="feat_property home7 style4">
+								<div style="height: 230px;" class="feat_property home7 style4">
 									<div class="thumb">
 										<div class="fp_single_item_slider">
 	
